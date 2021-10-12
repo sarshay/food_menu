@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Paper } from '@mui/material';
@@ -25,6 +24,7 @@ export default function CategoryTabs() {
         <Tab label="ဟင်းရည်" />
         <Tab label="အသုတ်" />
         <Tab label="ပင်လယ်စာ" />
+        <Tab label="ရိုးရာမုန့်" />
         <Tab label="ထိုင်းစာ" />
       </Tabs>
     </Paper>

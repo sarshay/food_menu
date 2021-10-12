@@ -1,14 +1,9 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import a_photo from './demo-backend/profile/cover.jpg'
-import ItemThumbnail from './template/item';
-import { Drawer, Hidden, SwipeableDrawer, Typography } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import ShareSharpIcon from '@mui/icons-material/ShareSharp';
 import Items from './items';
-import CategoryTabs from './template/categorytab';
-import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
+import { createTheme } from '@mui/material/styles';
 // နမူနာ api
 const shop = {
   name: "Food Shop",
@@ -97,6 +92,7 @@ function App() {
             className="info"
             style={{
               color: '#fff',
+              paddingTop:'40px',
               background: `linear-gradient(transparent, ${shop.theme_color})`
             }}
           >
@@ -106,7 +102,6 @@ function App() {
             </div>
           </div>
         </header>
-        <CategoryTabs />
         {/* <Box sx={{ width: '100%', color: 'inherint' }}>
           <Tabs value={value} onChange={handleChange} centered>
             <Tab label="Item One" />
