@@ -11,8 +11,19 @@ export default function CategoryTabs() {
   };
 
   return (
-    <Box sx={{ width: '100%',color:'inherint' }}>
-      <Tabs value={value} onChange={handleChange} centered>
+    <Box sx={{ width: '100%', color: 'inherint' }} className='container s'>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        scrollButtons="auto"
+        variant="scrollable"
+        >
+        <Tab label="Item One" />
+        <Tab label="Item Two" />
+        <Tab label="Item Three" />
+        <Tab label="Item One" />
+        <Tab label="Item Two" />
+        <Tab label="Item Three" />
         <Tab label="Item One" />
         <Tab label="Item Two" />
         <Tab label="Item Three" />
