@@ -13,7 +13,7 @@ const shop = {
   name: "Food Shop",
   description: "best place in thw world",
   feature_image: a_photo,
-  theme_color: '#059'
+  theme_color: '#630'
 }
 
 
@@ -22,7 +22,8 @@ function App() {
     <div className="profile" style={{ color: '#fff', backgroundColor: ` ${shop.theme_color}` }}>
       <header
         style={{
-          background: `url(${shop.feature_image})`
+          background: `url(${shop.feature_image})`,
+          backgroundSize: `cover`
         }}
       >
         <div
