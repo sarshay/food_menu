@@ -10,3 +10,10 @@
 .my,._my>*{
     margin-top:1rem;
 }
+.sticky{
+    position: sticky;
+    z-index: 1;
+    &.top0{
+        top:0;
+    }
+}

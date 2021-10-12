@@ -28,23 +28,24 @@ export default function Items() {
     };
 
     const item_detail = (item_id) => (
-        <Box
-            className="container s"
-            role="presentation"
-            onKeyDown={toggleDrawer(item_id, false)}
-            sx={{
-                p: 2,
-            }}
-        >
-            <Typography gutterBottom variant="h5" component="div">
-                {item_id}<ShareSharpIcon />
-            </Typography>
-            {item_id}<br />
-            {item_id}<br />
-            {item_id}<br />
-            {item_id}<br />
-            {item_id}<br />
-        </Box>
+        <div className="container s">
+            <Box
+                role="presentation"
+                onKeyDown={toggleDrawer(item_id, false)}
+                sx={{
+                    p: 2,
+                }}
+            >
+                <Typography gutterBottom variant="h5" component="div">
+                    {item_id}<ShareSharpIcon />
+                </Typography>
+                {item_id}<br />
+                {item_id}<br />
+                {item_id}<br />
+                {item_id}<br />
+                {item_id}<br />
+            </Box>
+        </div>
     );
 
     return (
