@@ -2,12 +2,14 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ItemThumbnail from './ItemThumbnail';
-import { CardMedia, SwipeableDrawer, Typography } from '@mui/material';
+import { CardMedia, IconButton, SwipeableDrawer, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Paper } from '@mui/material';
+import { borderRadius } from '@mui/system';
 
 // fetfrom api url
 
@@ -37,8 +39,10 @@ export default function Items(props) {
         setselectCat(newValue)
     }
     const item_detail = (i) => (
-        <div className="container s" style={{ height: '90vh', overflow: 'auto' }}>
-
+        <div className="container s" style={{ height: '100vh', overflow: 'auto' }}>
+            <IconButton onClick={toggleDrawer(i, false)} sx={{ p: 2, position: 'absolute', zIndex: 1 }}>
+                <ArrowBackIcon />
+            </IconButton>
             <CardMedia
                 component="img"
                 height="auto"
@@ -46,17 +50,24 @@ export default function Items(props) {
                 alt={i.title}
                 loading="lazy"
             />
-            <Box
+
+            <Paper
+                square elevation={0}
                 role="presentation"
                 onKeyDown={toggleDrawer(i, false)}
                 sx={{
                     p: 2,
+                    marginTop: '-20px',
+                }}
+                style={{
+                    position: 'relative',
+                    borderRadius: '20px 20px 0px 0px'
                 }}
             >
-                <Typography gutterBottom variant="h5" component="div">
-                    {i.title}
-                </Typography>
-            </Box>
+                <Typography gutterBottom variant="h5" component="div">{i.title}</Typography>
+                <p>Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant, animal or fungal origin, and contains essential ...</p>
+            </Paper>
+
         </div>
     );
     // category List gen

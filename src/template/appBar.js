@@ -96,7 +96,7 @@ function TheQrReader() {
 
     return (
         <React.Fragment>
-            <StyledFab color="primiery" aria-label="scan qr" onClick={qrOpener(true)} >
+            <StyledFab color="primary" aria-label="scan qr" onClick={qrOpener(true)} >
                 <QrCodeScannerIcon />
             </StyledFab>
             <SwipeableDrawer
