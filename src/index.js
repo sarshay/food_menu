@@ -2,16 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './style/index.scss';
 // import './style/app.scss';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router } from 'react-router-dom';
+import App from './page/shop';
+import reportWebVitals from './reportWebVitals';import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+import Home from './page/home';
 
 
 ReactDOM.render(
   <React.StrictMode>
 
     <Router>
-      <App />
+      <Switch>
+        <Route path={`/:topicId`}>
+          <App />
+        </Route>
+        <Route path={`/`}>
+          <Home/>
+        </Route>
+      </Switch>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

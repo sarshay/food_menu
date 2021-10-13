@@ -7,12 +7,14 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Fab from '@mui/material/Fab';
 import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
 import { SwipeableDrawer } from '@mui/material';
 import QrReader from 'react-qr-reader';
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import beep from './../media/beep-02.mp3'
 
 
 const StyledFab = styled(Fab)({
@@ -30,12 +32,10 @@ export default function BottomAppBar() {
             <CssBaseline />
             <AppBar position="sticky" color="primary" sx={{ top: 'auto', bottom: 0 }}>
                 <Toolbar>
-                    <IconButton color="inherit" aria-label="open drawer">
-                        <MenuIcon />
+                    <IconButton component={Link} to="/" color="inherit" aria-label="open drawer">
+                        <HomeIcon />
                     </IconButton>
-                    <StyledFab color="secondary" aria-label="add">
-                        <TheQrReader />
-                    </StyledFab>
+                    <TheQrReader />
                     <Box sx={{ flexGrow: 1 }} />
                     <IconButton color="inherit">
                         <SearchIcon />
@@ -72,13 +72,33 @@ function TheQrReader() {
         if (result !== null) {
             console.log(result);
             setqrOpen(false)
-            // history.push(result);
-            window.location.href = result;
+            // window.location.href = result;
+            // window.location.href = '?hello';
+            var pathArray = result.split('/');
+            var protocol = pathArray[0];
+            var path = pathArray[3];
+            var host = pathArray[2];
+
+
+            let audio = new Audio(beep)
+            if (window.location.origin.split('/')[2] == host) {
+                // our host 
+                // play sound
+                audio.play()
+                history.push(path);
+            }
+            else {
+                // others url
+                window.location.href = result;
+            }
         }
     }
+
     return (
         <React.Fragment>
-            <QrCodeScannerIcon onClick={qrOpener(true)} />
+            <StyledFab color="primiery" aria-label="scan qr" onClick={qrOpener(true)} >
+                <QrCodeScannerIcon />
+            </StyledFab>
             <SwipeableDrawer
                 className="container s"
                 anchor='bottom'
@@ -87,16 +107,23 @@ function TheQrReader() {
                 onOpen={qrOpener(true)}
             >
                 {qrOpen ?
-                    <div style={{ height: '80vh' }}>
-                        
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            p: 1,
+                            m: 1,
+                            height: '80vh',
+                        }}
+                    >
                         <QrReader
                             delay={300}
                             style={{ width: '300px' }}
                             onError={handleErrorScan}
                             onScan={handleScan}
                         />
-
-                    </div>
+                    </Box>
                     :
                     ''}
             </SwipeableDrawer>

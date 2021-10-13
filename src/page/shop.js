@@ -1,11 +1,11 @@
 import * as React from 'react';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import Items from './items';
+import Items from '../template/item';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
 import ShareSharpIcon from '@mui/icons-material/ShareSharp';
-import data from './demo-backend/shop/index.json'
-import BottomAppBar from './appBar';
+import data from '../demo-backend/shop/index.json'
+import BottomAppBar from '../template/appBar';
 
 
 function shadeColor(color, percent) {
@@ -108,8 +108,7 @@ function App() {
             <Tab label="Item Three" />
           </Tabs>
         </Box> */}
-        <Items data={data.items}
-        />
+        <Items data={data.items}/>
         <br />
       </div>
       <BottomAppBar/>
