@@ -1,0 +1,76 @@
+{
+    "name": "Food Shop",
+    "description": "best place in thw world",
+    "feature_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_81Ghp21Ly4wVUHkUW69Jo9YXqi4yqZ5ygSVJk7JK0GXJ8S-AOqzUO_HpQbqD2qL7vk&usqp=CAU",
+    "theme_color": "#991100",
+    "contact": [
+        {
+            "phone": "0987654",
+            "email": "email@mail.com",
+            "address": "address line 1",
+            "long-lat": "l0987-l9876"
+        }
+    ],
+    "items": [
+        {
+            "img": "https://discoveringfoods.files.wordpress.com/2016/03/dsc_1316.jpg",
+            "title": "ကျောက်ကြော",
+            "category": [
+                "အသုတ်",
+                "ပင်လယ်စာ"
+            ]
+        },
+        {
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_81Ghp21Ly4wVUHkUW69Jo9YXqi4yqZ5ygSVJk7JK0GXJ8S-AOqzUO_HpQbqD2qL7vk&usqp=CAU",
+            "title": "ကျောက်ပွင့်",
+            "category": [
+                "ပင်လယ်စာ",
+                "ရိုးရာမုန့်"
+            ]
+        },
+        {
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_81Ghp21Ly4wVUHkUW69Jo9YXqi4yqZ5ygSVJk7JK0GXJ8S-AOqzUO_HpQbqD2qL7vk&usqp=CAU",
+            "title": "ကြက်ကင်",
+            "category": [
+                "အကင်"
+            ]
+        },
+        {
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_81Ghp21Ly4wVUHkUW69Jo9YXqi4yqZ5ygSVJk7JK0GXJ8S-AOqzUO_HpQbqD2qL7vk&usqp=CAU",
+            "title": "မုန့်ဟင်းခါး",
+            "category": [
+                "ရိုးရာမုန့်"
+            ]
+        },
+        {
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_81Ghp21Ly4wVUHkUW69Jo9YXqi4yqZ5ygSVJk7JK0GXJ8S-AOqzUO_HpQbqD2qL7vk&usqp=CAU",
+            "title": "မုန့်တီ",
+            "category": [
+                "ဟင်းရည်",
+                "ရိုးရာမုန့်"
+            ]
+        },
+        {
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_81Ghp21Ly4wVUHkUW69Jo9YXqi4yqZ5ygSVJk7JK0GXJ8S-AOqzUO_HpQbqD2qL7vk&usqp=CAU",
+            "title": "ဆီထမင်း",
+            "category": [
+                "ရိုးရာမုန့်"
+            ]
+        },
+        {
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_81Ghp21Ly4wVUHkUW69Jo9YXqi4yqZ5ygSVJk7JK0GXJ8S-AOqzUO_HpQbqD2qL7vk&usqp=CAU",
+            "title": "လဖက်သုတ်",
+            "category": [
+                "အသုတ်"
+            ]
+        },
+        {
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_81Ghp21Ly4wVUHkUW69Jo9YXqi4yqZ5ygSVJk7JK0GXJ8S-AOqzUO_HpQbqD2qL7vk&usqp=CAU",
+            "title": "ပုစွန်",
+            "category": [
+                "အကြော်",
+                "ပင်လယ်စာ"
+            ]
+        }
+    ]
+}

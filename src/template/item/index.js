@@ -14,14 +14,13 @@ export default function ItemThumbnail(props) {
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    height="200"
+                    height="250"
                     image={`${item.img}?w=200&fit=crop&auto=format`}
                     alt={item.title}
                     loading="lazy"
                 />
                 <ImageListItemBar
                     title={item.title}
-                // subtitle={item.author}
                 />
             </CardActionArea>
         </Card>
