@@ -5,6 +5,7 @@ import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
 import ShareSharpIcon from '@mui/icons-material/ShareSharp';
 import data from './demo-backend/shop/index.json'
+import BottomAppBar from './appBar';
 
 
 function shadeColor(color, percent) {
@@ -62,6 +63,9 @@ const theme = createTheme({
     primary: {
       main: '#fff',
     },
+    secondary:{
+      main:colorShade(data.theme_color,50 ),
+    },
     background: {
       default: data.theme_color,
       paper: data.theme_color,
@@ -79,16 +83,14 @@ function App() {
       <div className="profile" style={{ color: '#fff', backgroundColor: ` ${data.theme_color}` }}>
         <header
           style={{
-            background: `url(${data.feature_image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            background: `url(${data.feature_image})`
           }}
         >
           <div
             className="info"
             style={{
               color: '#fff',
-              paddingTop: '40px',
+              paddingTop: '200px',
               background: `linear-gradient(transparent, ${data.theme_color})`
             }}
           >
@@ -110,6 +112,7 @@ function App() {
         />
         <br />
       </div>
+      <BottomAppBar/>
     </ThemeProvider>
   );
 }

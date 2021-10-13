@@ -41,7 +41,7 @@ export default function Items(props) {
 
             <CardMedia
                 component="img"
-                height="250"
+                height="auto"
                 image={`${i.img}?w=200&fit=crop&auto=format`}
                 alt={i.title}
                 loading="lazy"

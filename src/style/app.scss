@@ -7,6 +7,8 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        background-size: cover!important;
+        background-position: center!important;
         .info {
             padding: 1rem;
         }
