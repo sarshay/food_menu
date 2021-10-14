@@ -1,0 +1,45 @@
+{
+    "status": "success",
+    "query": {
+        "filter": {
+            "town_id": "1",
+            "food_category_id": "12"
+        },
+        "field": [
+            "name",
+            "description",
+            "feature_image",
+            "long-lat",
+            "town_name"
+        ]
+    },
+    "shops": [
+        {
+            "id": "123456",
+            "name": "Food Shop",
+            "description": "the description",
+            "feature_image": "https://static01.nyt.com/images/2021/01/26/well/well-foods-microbiome/well-foods-microbiome-superJumbo.jpg",
+            "town_id": "1",
+            "town_name": "sittwe",
+            "long-lat": "l0987-l9876"
+        },
+        {
+            "id": "123456",
+            "name": "Food Shop",
+            "description": "the description",
+            "feature_image": "https://static01.nyt.com/images/2021/01/26/well/well-foods-microbiome/well-foods-microbiome-superJumbo.jpg",
+            "town_id": "1",
+            "town_name": "sittwe",
+            "long-lat": "l0987-l9876"
+        },
+        {
+            "id": "123456",
+            "name": "Food Shop",
+            "description": "the description",
+            "feature_image": "https://static01.nyt.com/images/2021/01/26/well/well-foods-microbiome/well-foods-microbiome-superJumbo.jpg",
+            "town_id": "1",
+            "town_name": "sittwe",
+            "long-lat": "l0987-l9876"
+        }
+    ]
+}
