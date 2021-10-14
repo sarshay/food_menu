@@ -2,7 +2,7 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ItemThumbnail from './ItemThumbnail';
-import { CardMedia, IconButton, SwipeableDrawer, Typography } from '@mui/material';
+import { Button, CardMedia, IconButton, SwipeableDrawer, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -10,6 +10,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Paper } from '@mui/material';
 import { borderRadius } from '@mui/system';
+import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 
 // fetfrom api url
 
@@ -39,16 +40,14 @@ export default function Items(props) {
         setselectCat(newValue)
     }
     const item_detail = (i) => (
-        <div className="container s" style={{ height: '100vh', overflow: 'auto' }}>
-            <IconButton onClick={toggleDrawer(i, false)} sx={{ p: 2, position: 'absolute', zIndex: 1 }}>
-                <ArrowBackIcon />
-            </IconButton>
+        <div className="container s" style={{ minHeight: '100vh' }}>
             <CardMedia
                 component="img"
                 height="auto"
                 image={`${i.img}?w=200&fit=crop&auto=format`}
                 alt={i.title}
                 loading="lazy"
+                className="sticky top0"
             />
 
             <Paper
@@ -61,12 +60,32 @@ export default function Items(props) {
                 }}
                 style={{
                     position: 'relative',
+                    zIndex: 1,
                     borderRadius: '20px 20px 0px 0px'
                 }}
             >
                 <Typography gutterBottom variant="h5" component="div">{i.title}</Typography>
                 <p>Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant, animal or fungal origin, and contains essential ...</p>
             </Paper>
+            
+            <div style={{position:'fixed',top:'0',left:'0', zIndex: '1' }}>
+                <IconButton onClick={toggleDrawer(i, false)} sx={{ p: 2}}>
+                    <ArrowBackIcon />
+                </IconButton>
+            </div>
+            <Box
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    p: 1,
+                    m: 1,
+                }}
+            >
+                <Button variant="outlined" endIcon={<DeliveryDiningIcon />}>
+                    ပို့ဆောင်ပေးပါ
+                </Button>
+            </Box>
 
         </div>
     );

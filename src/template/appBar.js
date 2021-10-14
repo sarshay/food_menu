@@ -99,14 +99,15 @@ function TheQrReader() {
             <StyledFab color="primary" aria-label="scan qr" onClick={qrOpener(true)} >
                 <QrCodeScannerIcon />
             </StyledFab>
-            <SwipeableDrawer
-                className="container s"
-                anchor='bottom'
-                open={qrOpen}
-                onClose={qrOpener(false)}
-                onOpen={qrOpener(true)}
-            >
-                {qrOpen ?
+
+            {qrOpen ?
+                <SwipeableDrawer
+                    className="container s"
+                    anchor='bottom'
+                    open={qrOpen}
+                    onClose={qrOpener(false)}
+                    onOpen={qrOpener(true)}
+                >
                     <Box
                         sx={{
                             display: 'flex',
@@ -124,9 +125,9 @@ function TheQrReader() {
                             onScan={handleScan}
                         />
                     </Box>
-                    :
-                    ''}
-            </SwipeableDrawer>
+                </SwipeableDrawer>
+                :
+                ''}
         </React.Fragment>
 
     )
