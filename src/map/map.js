@@ -83,10 +83,10 @@ export default class MyMap extends Component {
           <div id="map" style={{ width: "100%", height: "50vh" }} />
           <div id="overlay" title="overlay"><FoodBankIcon /></div>
         </div>
-        <button onClick={e => this.updateMap(sittwe, 10)}>sittwe</button>
+        {/* <button onClick={e => this.updateMap(sittwe, 10)}>sittwe</button>
         <button onClick={e => this.updateMap(yangon, 10)}>yangon</button>
         <button onClick={e => this.seeLonLat()}>See Lon LayerTile</button>
-        <button onClick={e => this.whereIsMe()}>Where is me</button>
+        <button onClick={e => this.whereIsMe()}>Where is me</button> */}
       </React.Fragment>
     );
   }

@@ -69,34 +69,34 @@ export default function TheQrReader() {
                 <QrCodeScannerIcon />
             </StyledFab>
 
-            {qrOpen ?
-                <SwipeableDrawer
-                    className="container s"
-                    anchor='bottom'
-                    open={qrOpen}
-                    onClose={qrOpener(false)}
-                    onOpen={qrOpener(true)}
+            <SwipeableDrawer
+                className="container s"
+                anchor='bottom'
+                open={qrOpen}
+                onClose={qrOpener(false)}
+                onOpen={qrOpener(true)}
+            >
+                <Box
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        p: 1,
+                        m: 1,
+                        height: '80vh',
+                    }}
                 >
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            p: 1,
-                            m: 1,
-                            height: '80vh',
-                        }}
-                    >
+                    {qrOpen ?
                         <QrReader
                             delay={300}
                             style={{ width: '300px' }}
                             onError={handleErrorScan}
                             onScan={handleScan}
                         />
-                    </Box>
-                </SwipeableDrawer>
-                :
-                ''}
+                        :
+                        ''}
+                </Box>
+            </SwipeableDrawer>
         </React.Fragment>
 
     )

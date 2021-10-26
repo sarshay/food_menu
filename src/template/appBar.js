@@ -9,6 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link, useHistory } from "react-router-dom";
 import TheQrReader from './../the-qr-reader'
+import ExploreIcon from '@mui/icons-material/Explore';
 
 export default function BottomAppBar() {
     return (
@@ -17,15 +18,12 @@ export default function BottomAppBar() {
             <AppBar position="sticky" color="primary" sx={{ top: 'auto', bottom: 0 }}>
                 <Toolbar>
                     <IconButton component={Link} to="/" color="inherit" aria-label="open drawer">
-                        <HomeIcon />
+                        <ExploreIcon />
                     </IconButton>
-                    <TheQrReader />
                     <Box sx={{ flexGrow: 1 }} />
+                    <TheQrReader />
                     <IconButton color="inherit">
                         <SearchIcon />
-                    </IconButton>
-                    <IconButton color="inherit">
-                        <MoreIcon />
                     </IconButton>
                 </Toolbar>
             </AppBar>

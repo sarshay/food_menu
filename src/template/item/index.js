@@ -67,9 +67,9 @@ export default function Items(props) {
                 <Typography gutterBottom variant="h5" component="div">{i.title}</Typography>
                 <p>Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant, animal or fungal origin, and contains essential ...</p>
             </Paper>
-            
-            <div style={{position:'fixed',top:'0',left:'0', zIndex: '1' }}>
-                <IconButton onClick={toggleDrawer(i, false)} sx={{ p: 2}}>
+
+            <div style={{ position: 'fixed', top: '0', left: '0', zIndex: '1' }}>
+                <IconButton onClick={toggleDrawer(i, false)} sx={{ p: 2 }}>
                     <ArrowBackIcon />
                 </IconButton>
             </div>
@@ -100,6 +100,8 @@ export default function Items(props) {
     });
     return (
         <div className="container s" style={{ transition: '1s' }}>
+
+            {/* အမျိုးအစားခွဲရန် */}
             <Paper square elevation={0} className='container s sticky top0'>
                 <Tabs
                     value={selectCat}
@@ -114,6 +116,8 @@ export default function Items(props) {
                     ))}
                 </Tabs>
             </Paper>
+
+            {/* အစားအစာများအား ItemThumbnail ဖြင့်ပြရန် */}
             <ImageList>
                 {itemData.map((item, i) => {
                     if (item.category.includes(selectCat) || selectCat == null) {
@@ -125,6 +129,7 @@ export default function Items(props) {
                     }
                 })}
             </ImageList>
+            {/* ကြည့်လို့သော အစားအနစာများကို အပြည့်စုံပြရန် Drawer */}
             <SwipeableDrawer
                 className="container s"
                 anchor='bottom'
