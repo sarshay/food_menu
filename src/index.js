@@ -12,6 +12,7 @@ import reportWebVitals from './reportWebVitals';import {
   useParams
 } from "react-router-dom";
 import Home from './page/home';
+import Tast from './model/ajax';
 
 
 ReactDOM.render(
@@ -19,7 +20,10 @@ ReactDOM.render(
 
     <Router>
       <Switch>
-        <Route path={`/:topicId`}>
+        <Route path={`/tast`}>
+          <Tast />
+        </Route>
+        <Route path={`/:shop_id`}>
           <App />
         </Route>
         <Route path={`/`}>
