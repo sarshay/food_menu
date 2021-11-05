@@ -1,11 +1,11 @@
 import * as React from 'react';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import Items from '../template/item';
+import Items from '../view/item';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
 import ShareSharpIcon from '@mui/icons-material/ShareSharp';
-import data from '../demo-backend/shop/index.json'
-import BottomAppBar from '../template/appBar';
+import data from './../model/index.json'
+import BottomAppBar from '../components/app_bar';
 
 
 function shadeColor(color, percent) {
@@ -76,7 +76,7 @@ const theme = createTheme({
     },
   }
 });
-function App() {
+function Shop() {
 
   return (
     <ThemeProvider theme={theme}>
@@ -116,4 +116,4 @@ function App() {
   );
 }
 
-export default App;
+export default Shop;
