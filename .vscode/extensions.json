@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "sibiraj-s.vscode-scss-formatter"
+        "sibiraj-s.vscode-scss-formatter",
+        "xabikos.reactsnippets"
     ]
 }

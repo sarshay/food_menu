@@ -8,7 +8,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link, useHistory } from "react-router-dom";
-import TheQrReader from './../the-qr-reader'
+import TheQrReader from './the-qr-reader'
 import ExploreIcon from '@mui/icons-material/Explore';
 
 export default function BottomAppBar() {

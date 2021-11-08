@@ -4,7 +4,7 @@ import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
 import { SwipeableDrawer } from '@mui/material';
 import QrReader from 'react-qr-reader';
 import { Link, useHistory } from "react-router-dom";
-import beep from './media/beep-02.mp3'
+import beep from './beep-02.mp3';
 import Fab from '@mui/material/Fab';
 import { styled } from '@mui/material/styles';
 

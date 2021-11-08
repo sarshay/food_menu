@@ -1,6 +1,6 @@
 import React from 'react';
-import ShopThumbnail from '../template/shop/thumbnail';
-import archive from './../demo-backend/shop/archive-shop.json'
+import ShopThumbnail from '../view/shop/thumbnail';
+import archive from '../model/archive-shop.json'
 
 export default function ShopArchive(props) {
     // prop အား backend ကိုပို့ပြီး result ရယူရန်
