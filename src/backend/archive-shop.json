@@ -1,0 +1,54 @@
+{
+    "status": "success",
+    "query": {
+        "filter": {
+            "town_id": "1",
+            "food_category_id": "12"
+        },
+        "field": [
+            "name",
+            "description",
+            "feature_image",
+            "long_lat",
+            "town_name"
+        ]
+    },
+    "shops": [
+        {
+            "id": "1",
+            "name": "Wine Shop",
+            "description": "the description",
+            "feature_image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/9e/b7/38/paia-inn.jpg",
+            "town_id": "1",
+            "town_name": "sittwe",
+            "long_lat": "l0987-l9876"
+        },
+        {
+            "id": "2",
+            "name": "Beer Shop",
+            "description": "the description",
+            "feature_image": "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg",
+            "town_id": "1",
+            "town_name": "sittwe",
+            "long_lat": "l0987-l9876"
+        },
+        {
+            "id": "3",
+            "name": "Drink Shop",
+            "description": "the description",
+            "feature_image": "https://static01.nyt.com/images/2021/01/26/well/well-foods-microbiome/well-foods-microbiome-superJumbo.jpg",
+            "town_id": "1",
+            "town_name": "sittwe",
+            "long_lat": "l0987-l9876"
+        },
+        {
+            "id": "4",
+            "name": "Ha Ha Shop (Arakan)",
+            "description": "the description",
+            "feature_image": "https://www.jll.com.au/images/apac/australia/articles/jll-au-neighbourhood-shopping-centre-aocial-1200x628.jpg",
+            "town_id": "1",
+            "town_name": "sittwe",
+            "long_lat": "l0987-l9876"
+        }
+    ]
+}

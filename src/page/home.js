@@ -2,7 +2,6 @@ import { ThemeProvider } from '@mui/material';
 import React from 'react';
 import ShopArchive from '../controller/shop_archive';
 import BottomAppBar from '../components/app_bar';
-import MyMap from '../view/map/map'
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
@@ -32,8 +31,6 @@ function Home(props) {
                 style={{
                     minHeight: `calc(100vh - 60px)`
                 }}>
-                <MyMap {...[92.8324102, 20.1598002]} />
-                {/* <TheMap/> */}
                 <ShopArchive/>
             </div>
             <BottomAppBar />
