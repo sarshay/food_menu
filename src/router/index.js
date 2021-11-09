@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
-import Tast from '../backend/ajax';
+import Tast from '../backend/index.js';
 import Home from '../page/home';
 import Shop from '../page/shop';
 

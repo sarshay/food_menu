@@ -31,7 +31,7 @@ function Home(props) {
                 style={{
                     minHeight: `calc(100vh - 60px)`
                 }}>
-                <ShopArchive/>
+                <ShopArchive search="ducim"/>
             </div>
             <BottomAppBar />
         </ThemeProvider>
