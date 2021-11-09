@@ -2,37 +2,49 @@ import React from "react";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Items from '../item';
 import ShareSharpIcon from '@mui/icons-material/ShareSharp';
+import { IconButton } from "@mui/material";
+import { Map, Phone } from "@mui/icons-material";
 
 
 
-export default function Shop(d){
+export default function Shop(d) {
   const data = d.data;
   const color = data.color;
   // const color = "#900";
-return(
+  return (
     <div className="profile" style={{ color: '#fff', backgroundColor: ` ${color}` }}>
-    <header
-      style={{
-        background: `url(${data.feature_image})`
-      }}
-    >
-      <div
-        className="info"
+      <header
         style={{
-          color: '#fff',
-          paddingTop: '200px',
-          background: `linear-gradient(transparent, ${color})`
+          background: `url(${data.feature_image})`
         }}
       >
-        <div className=" container s">
-          <h1>{data.name}&nbsp;<CheckCircleIcon /></h1>
-          <p>{data.description}</p>
-          <ShareSharpIcon />
+        <div
+          className="info"
+          style={{
+            color: '#fff',
+            paddingTop: '200px',
+            background: `linear-gradient(transparent, ${color})`
+          }}
+        >
+          <div className=" container s">
+            <h1>{data.name}&nbsp;<CheckCircleIcon /></h1>
+            <p>{data.description}</p>
+
+            <IconButton aria-label="call">
+              <Phone />
+            </IconButton>
+            <IconButton aria-label="map">
+              <Map />
+            </IconButton>
+            <IconButton aria-label="share">
+              <ShareSharpIcon />
+            </IconButton>
+
+          </div>
         </div>
-      </div>
-    </header>
-    <Items data={data.items}/>
-    <br />
-  </div>
-)
+      </header>
+      <Items data={data.items} />
+      <br />
+    </div>
+  )
 }
