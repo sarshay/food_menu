@@ -93,7 +93,7 @@ export default function Items(props) {
     const categories = []
     itemData.map((item) => {
         item.category.map((cat) => {
-            if (!categories.includes(cat)) {
+            if (!categories.some(item => item.id === cat.id)) {
                 categories.push(cat);
             }
         })
@@ -112,7 +112,7 @@ export default function Items(props) {
                     <Tab label="အားလုံး" value={null} />
 
                     {categories.map((cat) => (
-                        <Tab key={cat} label={cat} value={cat} />
+                        <Tab key={cat} label={cat.label} value={cat.id} />
                     ))}
                 </Tabs>
             </Paper>
@@ -120,7 +120,7 @@ export default function Items(props) {
             {/* အစားအစာများအား ItemThumbnail ဖြင့်ပြရန် */}
             <ImageList>
                 {itemData.map((item, i) => {
-                    if (item.category.includes(selectCat) || selectCat == null) {
+                    if (item.category.some(c => c.id === selectCat) || selectCat == null) { 
                         return (
                             <ImageListItem key={i} onClick={toggleDrawer(item, true)}>
                                 <ItemThumbnail {...item} />

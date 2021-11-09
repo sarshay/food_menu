@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import ShopThumbnail from '../view/shop/thumbnail';
-import axios from './ajax';
+import axios from 'axios';
 
-function Tast(prams) {
+function ShopArchive(prams) {
     const [shops, setShops] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
     useEffect(() => {
-
+        console.log(process.env);
         async function fetchData() {
             setLoading(true);
             setError(false);
-            await axios.get(`shop/search/${prams.search}`)
-                // await axios.get(`shop/`)
+            window.scrollTo(0, 0);
+            // await axios.get(`shop/search/${prams.search}`)
+                await axios.get(`${process.env.REACT_APP_BASE_URL}/shop/`)
                 .then((res) => {
                     setShops(res.data);
                     setLoading(false);
@@ -41,6 +42,7 @@ function Tast(prams) {
                         ))
             }
         </React.Fragment>
+        
     );
 }
-export default Tast;
+export default ShopArchive;

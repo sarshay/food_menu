@@ -11,6 +11,7 @@ import Divider from '@mui/material/Divider';
 
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
+import { Box } from '@mui/system';
 
 export default function ShopThumbnail(props) {
     const shopData = props.shop;
@@ -19,7 +20,7 @@ export default function ShopThumbnail(props) {
         <React.Fragment>
             {shopData == 'loading'
                 ? <Loading />
-                : <div>
+                : <Box sx={{  m: 2 , pt: 0.5 }}>
                     <CardActionArea
                         sx={{
                             backgroundImage: `url(${shopData.feature_image})`,
@@ -45,7 +46,7 @@ export default function ShopThumbnail(props) {
                         </CardContent>
 
                     </CardActionArea>
-                </div>
+                </Box>
             }
         </React.Fragment>
     );
@@ -54,9 +55,10 @@ export default function ShopThumbnail(props) {
 
 const Loading = () => {
     return (
-        <Stack spacing={1}>
-            <Skeleton variant="text" />
-            <Skeleton variant="rectangular" height={200} />
-        </Stack>
+        <Box sx={{  m: 2 , pt: 0.5 }}>
+            <Skeleton height={100} animation="wave" variant="rectangular"/>
+            <Skeleton animation="wave" />
+            <Skeleton animation="wave" width="60%" />
+        </Box>
     )
 }

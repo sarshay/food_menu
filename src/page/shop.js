@@ -1,12 +1,45 @@
-import * as React from 'react';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import Items from '../view/item';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
-import ShareSharpIcon from '@mui/icons-material/ShareSharp';
 import data from '../backend/index.json'
 import BottomAppBar from '../components/app_bar';
-import {colorShade} from '../function/color'
+import { colorShade } from '../function/color'
+import Shop from '../view/shop';
+import axios from 'axios';
+import { Loading } from '../components/httpResponse';
+
+/// shop page မှာ controller မသုံး Colorပါလို့
+
+
+
+function ShopPage(id) {
+  const [shop, setShop] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [color,setColor] = useState('#666');
+
+  useEffect(() => {
+    console.log(process.env);
+    async function fetchData() {
+      setLoading(true);
+      setError(false);
+      window.scrollTo(0, 0);
+      // await axios.get(`shop/search/${prams.search}`)
+      await axios.get(`${process.env.REACT_APP_BASE_URL}/shop/15`)
+        .then((res) => {
+          setShop(res.data);
+          
+          setColor(res.data.color)
+          setLoading(false);
+        })
+        .catch((error) => {
+          setError(error);
+          setLoading(false);
+          console.log(error);
+        });
+    }
+    fetchData();
+  }, [id]);
 
 
 const theme = createTheme({
@@ -15,57 +48,35 @@ const theme = createTheme({
     primary: {
       main: '#fff',
     },
-    secondary:{
-      main:colorShade(data.theme_color,50 ),
+    secondary: {
+      main: colorShade(color, 50),
     },
     background: {
-      default: data.theme_color,
-      paper: data.theme_color,
+      default: color,
+      paper: color,
     },
     text: {
       primary: '#fff',
-      // secondary:colorShade(data.theme_color,50 )
+      // secondary:colorShade(color,50 )
     },
   }
 });
-function Shop() {
-
   return (
+    <React.Fragment>
     <ThemeProvider theme={theme}>
-      <div className="profile" style={{ color: '#fff', backgroundColor: ` ${data.theme_color}` }}>
-        <header
-          style={{
-            background: `url(${data.feature_image})`
-          }}
-        >
-          <div
-            className="info"
-            style={{
-              color: '#fff',
-              paddingTop: '200px',
-              background: `linear-gradient(transparent, ${data.theme_color})`
-            }}
-          >
-            <div className=" container s">
-              <h1>{data.name}&nbsp;<CheckCircleIcon /></h1>
-              <p>{data.description}</p>
-              <ShareSharpIcon />
-            </div>
-          </div>
-        </header>
-        {/* <Box sx={{ width: '100%', color: 'inherint' }}>
-          <Tabs value={value} onChange={handleChange} centered>
-            <Tab label="Item One" />
-            <Tab label="Item Two" />
-            <Tab label="Item Three" />
-          </Tabs>
-        </Box> */}
-        <Items data={data.items}/>
-        <br />
-      </div>
-      <BottomAppBar/>
+      {
+        loading == true ?
+          // <Shop data="loading" /> 
+          <Loading/> :
+          error !== false ? error.message :
+            // <Loading/> 
+            <Shop data={shop} />
+      }
+      <BottomAppBar />
     </ThemeProvider>
+    </React.Fragment>
   );
 }
 
-export default Shop;
+export default ShopPage;
+

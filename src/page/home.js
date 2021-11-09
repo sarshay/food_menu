@@ -24,13 +24,10 @@ const theme = createTheme({
     }
   });
 
-function Home(props) {
+function HomePage(props) {
     return (
         <ThemeProvider theme={theme}>
-            <div
-                style={{
-                    minHeight: `calc(100vh - 60px)`
-                }}>
+            <div style={{ minHeight: `calc(100vh - 60px)`}}>
                 <ShopArchive search="ducim"/>
             </div>
             <BottomAppBar />
@@ -38,4 +35,4 @@ function Home(props) {
     );
 }
 
-export default Home;
+export default HomePage;

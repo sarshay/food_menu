@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Shop from '../view/shop';
 import ShopThumbnail from '../view/shop/thumbnail';
 import axios from './ajax';
-
+import sample from './index.json'
 function Tast(url) {
     const [shops, setShops] = useState([]);
 
@@ -18,14 +19,7 @@ function Tast(url) {
 
     return (
         <React.Fragment>
-            {
-                shops.map((shop) => (
-                    <ShopThumbnail 
-                    shop = {shop} 
-                    style = 'card'
-                    key={shop.id}/>
-                ))
-            }
+           <Shop {...sample} />
         </React.Fragment>
     );
 }
