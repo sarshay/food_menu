@@ -20,7 +20,7 @@ export default function ShopThumbnail(props) {
         <React.Fragment>
             {shopData == 'loading'
                 ? <Loading />
-                : <Box sx={{  m: 2 , pt: 0.5 }}>
+                : <Box sx={{ m: 2, pt: 0.5 }}>
                     <CardActionArea
                         sx={{
                             backgroundImage: `url(${shopData.feature_image})`,
@@ -29,7 +29,7 @@ export default function ShopThumbnail(props) {
                             backgroundPosition: `right`
                         }}
                         component={Link}
-                        to={`${shopData.id}`}>
+                        to={`/${shopData.id}`}>
 
                         <CardContent
                             sx={{
@@ -55,8 +55,8 @@ export default function ShopThumbnail(props) {
 
 const Loading = () => {
     return (
-        <Box sx={{  m: 2 , pt: 0.5 }}>
-            <Skeleton height={100} animation="wave" variant="rectangular"/>
+        <Box sx={{ m: 2, pt: 0.5 }}>
+            <Skeleton height={100} animation="wave" variant="rectangular" />
             <Skeleton animation="wave" />
             <Skeleton animation="wave" width="60%" />
         </Box>

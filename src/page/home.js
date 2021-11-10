@@ -3,35 +3,48 @@ import React from 'react';
 import ShopArchive from '../controller/shop_archive';
 import BottomAppBar from '../components/app_bar';
 import { createTheme } from '@mui/material/styles';
+import { useParams } from 'react-router';
 
 const theme = createTheme({
-    palette: {
-      mode: 'dark',
-      primary: {
-        main: '#fff',
-      },
-      secondary:{
-        main:'#333',
-      },
-      background: {
-        default: '#000',
-        paper: '#333',
-      },
-      text: {
-        primary: '#fff',
-        // secondary:colorShade(data.theme_color,50 )
-      },
-    }
-  });
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#fff',
+    },
+    secondary: {
+      main: '#333',
+    },
+    background: {
+      default: '#000',
+      paper: '#333',
+    },
+    text: {
+      primary: '#fff',
+      // secondary:colorShade(data.theme_color,50 )
+    },
+  }
+});
 
 function HomePage(props) {
-    return (
-        <ThemeProvider theme={theme}>
-            <div style={{ minHeight: `calc(100vh - 60px)`}}>
-                <ShopArchive search="ducim"/>
-            </div>
-            <BottomAppBar />
-        </ThemeProvider>
+  let word = useParams().word;
+  let filterbyName = {
+    filter:"name",//location(lat-long),town,name
+    value:word,
+    params: {
+      limit: 10,
+      offset: 0
+    }
+  }
+  var filter = word?filterbyName:''
+  return (
+      <ThemeProvider theme={theme}>
+        <div className="page">
+          <ShopArchive
+          {...filter}
+          />
+          <BottomAppBar />
+        </div>
+      </ThemeProvider>
     );
 }
 

@@ -11,7 +11,15 @@ function MyRoute(props) {
                 <Route path={`/tast`}>
                     <Tast />
                 </Route>
-                <Route path={`/:shop_id`}>
+                <Route path={`/search/:word`} >
+                    {/* gosearch result page  */}
+                    <Home />
+                </Route>
+                <Route path={`/search`} >
+                    {/* go search page */}
+                    <Home /> 
+                </Route>
+                <Route exact path={`/:shop_id`}>
                     <Shop />
                 </Route>
                 <Route path={`/`}>

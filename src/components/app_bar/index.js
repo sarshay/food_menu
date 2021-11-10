@@ -15,7 +15,7 @@ export default function BottomAppBar() {
     return (
         <React.Fragment>
             <CssBaseline />
-            <AppBar position="sticky" color="primary" sx={{ top: 'auto', bottom: 0 }}>
+            <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
                 <Toolbar>
                     <IconButton component={Link} to="/" color="inherit" aria-label="open drawer">
                         <ExploreIcon />

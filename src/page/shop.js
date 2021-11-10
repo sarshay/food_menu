@@ -7,16 +7,17 @@ import { colorShade } from '../function/color'
 import Shop from '../view/shop';
 import axios from 'axios';
 import { Loading } from '../components/httpResponse';
-
+import { useParams } from "react-router-dom";
 /// shop page မှာ controller မသုံး Colorပါလို့
 
 
 
-function ShopPage(id) {
+function ShopPage() {
+  let id = useParams().shop_id;
   const [shop, setShop] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [color,setColor] = useState('#666');
+  const [color, setColor] = useState('#666');
 
   useEffect(() => {
     console.log(process.env);
@@ -24,11 +25,10 @@ function ShopPage(id) {
       setLoading(true);
       setError(false);
       window.scrollTo(0, 0);
-      // await axios.get(`shop/search/${prams.search}`)
-      await axios.get(`${process.env.REACT_APP_BASE_URL}/shop/15`)
+      await axios.get(`${process.env.REACT_APP_BASE_URL}/shop/${id }`)
         .then((res) => {
           setShop(res.data);
-          
+
           setColor(res.data.color)
           setLoading(false);
         })
@@ -42,39 +42,39 @@ function ShopPage(id) {
   }, [id]);
 
 
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: '#fff',
-    },
-    secondary: {
-      main: colorShade(color, 50),
-    },
-    background: {
-      default: color,
-      paper: color,
-    },
-    text: {
-      primary: '#fff',
-      // secondary:colorShade(color,50 )
-    },
-  }
-});
+  const theme = createTheme({
+    palette: {
+      mode: 'dark',
+      primary: {
+        main: '#fff',
+      },
+      secondary: {
+        main: colorShade(color, 50),
+      },
+      background: {
+        default: color,
+        paper: color,
+      },
+      text: {
+        primary: '#fff',
+        // secondary:colorShade(color,50 )
+      },
+    }
+  });
   return (
-    <React.Fragment>
     <ThemeProvider theme={theme}>
-      {
-        loading == true ?
-          // <Shop data="loading" /> 
-          <Loading/> :
-          error !== false ? error.message :
-            // <Loading/> 
-            <Shop data={shop} />
-      }
-      <BottomAppBar />
+      <div className="page">
+        {
+          loading == true ?
+            // <Shop data="loading" /> 
+            <Loading /> :
+            error !== false ? error.message :
+              // <Loading/> 
+              <Shop data={shop} />
+        }
+        <BottomAppBar />
+      </div>
     </ThemeProvider>
-    </React.Fragment>
   );
 }
 

@@ -1,9 +1,9 @@
 .profile {
     min-height: 100vh;
     header {
-        height: 35vh;
-        max-height: 340px;
-        min-height: 240px;
+        min-height: 35vh;
+        // max-height: 340px;
+        // min-height: 240px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -13,4 +13,7 @@
             padding: 1rem;
         }
     }
+}
+.page{
+    padding-bottom: 60px;
 }
