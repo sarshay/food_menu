@@ -20,7 +20,7 @@ export default function ShopThumbnail(props) {
         <React.Fragment>
             {shopData == 'loading'
                 ? <Loading />
-                : <Box sx={{ m: 2, pt: 0.5 }}>
+                : <Box sx={{ pt: 0.5 }}>
                     <CardActionArea
                         sx={{
                             backgroundImage: `url(${shopData.feature_image})`,

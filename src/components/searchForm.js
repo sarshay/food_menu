@@ -21,13 +21,13 @@ export function SearchShop() {
     }
     const goSearch = (e) => {
         e.preventDefault();
-        history.push(`/search/${word}`);
+        history.push(`/search/${word==undefined?'':word}`);
         console.log(word);
     }
     return (
         <Paper
+            className="glass"
             component="form"
-
             variant="filled"
             noValidate
             autoComplete="off"
@@ -37,12 +37,12 @@ export function SearchShop() {
             onSubmit={goSearch}
         >
             <InputBase
+                required={true}
                 sx={{ ml: 1, flex: 1 }}
                 placeholder={lang().searchFoodOrShop}
                 inputProps={{ 'aria-label': 'search food or shop' }}
                 value={word}
                 onChange={handleChange}
-                required
             />
             <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
                 <SearchIcon />

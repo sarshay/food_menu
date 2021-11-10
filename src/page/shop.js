@@ -53,7 +53,7 @@ function ShopPage() {
       },
       background: {
         default: color,
-        paper: color,
+        paper: color+'aa',
       },
       text: {
         primary: '#fff',
@@ -63,14 +63,14 @@ function ShopPage() {
   });
   return (
     <ThemeProvider theme={theme}>
-      <div className="page">
+      <div style={{background:color}} className="page">
         {
           loading == true ?
             // <Shop data="loading" /> 
             <Loading /> :
             error !== false ? error.message :
               // <Loading/> 
-              <Shop data={shop} />
+              <Shop data={shop}/>
         }
         <BottomAppBar />
       </div>

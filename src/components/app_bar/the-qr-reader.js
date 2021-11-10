@@ -76,7 +76,8 @@ export default function TheQrReader() {
                 onClose={qrOpener(false)}
                 onOpen={qrOpener(true)}
             >
-                <Box
+                <Box 
+                    className="glass"
                     sx={{
                         display: 'flex',
                         alignItems: 'center',

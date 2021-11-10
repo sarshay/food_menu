@@ -12,7 +12,7 @@ export default function Shop(d) {
   const color = data.color;
   // const color = "#900";
   return (
-    <div className="profile" style={{ color: '#fff', backgroundColor: ` ${color}` }}>
+    <div className="profile">
       <header
         style={{
           background: `url(${data.feature_image})`

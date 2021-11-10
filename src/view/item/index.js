@@ -2,7 +2,7 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ItemThumbnail from './ItemThumbnail';
-import { Button, CardMedia, IconButton, SwipeableDrawer, Typography } from '@mui/material';
+import { Button, CardMedia, Divider, IconButton, List, ListItem, ListItemText, SwipeableDrawer, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -41,7 +41,7 @@ export default function Items(props) {
         setselectCat(newValue)
     }
     const item_detail = (i) => (
-        <div className="container s" style={{ minHeight: '100vh' }}>
+        <div className="container s" >
             <CardMedia
                 component="img"
                 height="auto"
@@ -50,8 +50,8 @@ export default function Items(props) {
                 loading="lazy"
                 className="sticky top0"
             />
-
             <Paper
+                className="glass"
                 square elevation={0}
                 role="presentation"
                 onKeyDown={toggleDrawer(i, false)}
@@ -65,29 +65,32 @@ export default function Items(props) {
                     borderRadius: '20px 20px 0px 0px'
                 }}
             >
-                <Typography gutterBottom variant="h5" component="div">{i.title}</Typography>
-                <p>Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant, animal or fungal origin, and contains essential ...</p>
+                <Typography gutterBottom variant="h5" component="h1">{i.title}</Typography>
+                <p>{i.description}</p>
+
+                <Specifications {...i.price} />
+
+                <Box
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        p: 1,
+                        m: 1,
+                    }}
+                >
+                    <Button variant="outlined" endIcon={<DeliveryDiningIcon />}>
+                        {lang().sendMe}
+                    </Button>
+                </Box>
             </Paper>
+
 
             <div style={{ position: 'fixed', top: '0', left: '0', zIndex: '1' }}>
                 <IconButton onClick={toggleDrawer(i, false)} sx={{ p: 2 }}>
                     <ArrowBackIcon />
                 </IconButton>
             </div>
-            <Box
-                sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    p: 1,
-                    m: 1,
-                }}
-            >
-                <Button variant="outlined" endIcon={<DeliveryDiningIcon />}>
-                    ပို့ဆောင်ပေးပါ
-                </Button>
-            </Box>
-
         </div>
     );
     // category List gen
@@ -103,25 +106,26 @@ export default function Items(props) {
         <div className="container s" style={{ transition: '1s' }}>
 
             {/* အမျိုးအစားခွဲရန် */}
-            <Paper square elevation={0} className='container s sticky top0'>
-                <Tabs
-                    value={selectCat}
-                    onChange={updateSelectCategory}
-                    scrollButtons="auto"
-                    variant="scrollable"
-                >
-                    <Tab label={lang().all} value={null} />
+            {itemData.length > 0 ?//ပစည်းရှိမှပြ
+                <Paper square elevation={0} className='glass container s sticky top0'>
+                    <Tabs
+                        value={selectCat}
+                        onChange={updateSelectCategory}
+                        scrollButtons="auto"
+                        variant="scrollable"
+                    >
+                        <Tab label={lang().all} value={null} />
 
-                    {categories.map((cat) => (
-                        <Tab key={cat} label={cat.label} value={cat.id} />
-                    ))}
-                </Tabs>
-            </Paper>
-
+                        {categories.map((cat) => (
+                            <Tab key={cat} label={cat.label} value={cat.id} />
+                        ))}
+                    </Tabs>
+                </Paper> : ''
+            }
             {/* အစားအစာများအား ItemThumbnail ဖြင့်ပြရန် */}
             <ImageList>
                 {itemData.map((item, i) => {
-                    if (item.category.some(c => c.id === selectCat) || selectCat == null) { 
+                    if (item.category.some(c => c.id === selectCat) || selectCat == null) {
                         return (
                             <ImageListItem key={i} onClick={toggleDrawer(item, true)}>
                                 <ItemThumbnail {...item} />
@@ -142,4 +146,36 @@ export default function Items(props) {
             </SwipeableDrawer>
         </div>
     );
+}
+
+function Specifications(prices) {
+    console.log(prices);
+    return (
+        <React.Fragment>
+            <TableContainer>
+                <Table aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell></TableCell>
+                            <TableCell align="right">
+                                <Typography variant="div" component="small" color="text.secondary">{lang().price}</Typography>
+                            </TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {
+                            Object.keys(prices).map(key => {
+                                return (
+                                    <TableRow key={key}>
+                                        <TableCell>{key}</TableCell>
+                                        <TableCell align="right">{prices[key].toLocaleString('en-US')}&nbsp;{lang().kyat}</TableCell>
+                                    </TableRow>
+                                )
+                            })
+                        }
+                    </TableBody>
+                </Table>
+            </TableContainer >
+        </React.Fragment>
+    )
 }
