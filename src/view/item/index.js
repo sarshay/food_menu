@@ -11,6 +11,7 @@ import Tab from '@mui/material/Tab';
 import { Paper } from '@mui/material';
 import { borderRadius } from '@mui/system';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
+import { lang } from '../../components/message';
 
 // fetfrom api url
 
@@ -109,7 +110,7 @@ export default function Items(props) {
                     scrollButtons="auto"
                     variant="scrollable"
                 >
-                    <Tab label="အားလုံး" value={null} />
+                    <Tab label={lang().all} value={null} />
 
                     {categories.map((cat) => (
                         <Tab key={cat} label={cat.label} value={cat.id} />

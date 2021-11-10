@@ -6,7 +6,7 @@ import BottomAppBar from '../components/app_bar';
 import { colorShade } from '../function/color'
 import Shop from '../view/shop';
 import axios from 'axios';
-import { Loading } from '../components/httpResponse';
+import { Loading } from '../components/message';
 import { useParams } from "react-router-dom";
 /// shop page မှာ controller မသုံး Colorပါလို့
 

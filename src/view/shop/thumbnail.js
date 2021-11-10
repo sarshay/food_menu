@@ -33,8 +33,9 @@ export default function ShopThumbnail(props) {
 
                         <CardContent
                             sx={{
-                                background: `linear-gradient(90deg, rgba(0,0,0,0.6)30%,rgba(0,0,0,0.4))`,
+                                background: `radial-gradient(${shopData.color}a5 10%,rgba(0,0,0,1))`,
                                 position: `relative`,
+                                textAlign:'center',
                                 height: `200px`
                             }}><br />
                             <Typography gutterBottom variant="h5" component="div">
