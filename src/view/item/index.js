@@ -39,7 +39,8 @@ export default function Items(props) {
 
     const updateSelectCategory = (event, newValue) => {
         setselectCat(newValue)
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        var offset =document.getElementById("itemShow").offsetTop;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
     }
     const item_detail = (i) => (
         <div className="container s" >
@@ -104,7 +105,7 @@ export default function Items(props) {
         })
     });
     return (
-        <div className="container s" style={{ transition: '1s' }}>
+        <div className="container s" id="itemShow" style={{ transition: '1s' }}>
 
             {/* အမျိုးအစားခွဲရန် */}
             {itemData.length > 0 ?//ပစည်းရှိမှပြ
