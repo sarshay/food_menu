@@ -1,76 +1,416 @@
 {
-    "name": "Food Shop",
-    "description": "best place in thw world",
-    "feature_image": "https://static01.nyt.com/images/2021/01/26/well/well-foods-microbiome/well-foods-microbiome-superJumbo.jpg",
-    "theme_color": "#a50",
-    "contact": [
-        {
-            "phone": "0987654",
-            "email": "email@mail.com",
-            "address": "address line 1",
-            "long-lat": "l0987-l9876"
-        }
-    ],
+    "id": 15,
+    "name": "Et consectetur temporibus reprehenderit sunt culpa pariatur.",
+    "description": "Et laboriosam consequatur at unde sequi. Veniam perspiciatis inventore incidunt voluptatum. Cumque tempore vero ab omnis culpa optio. Velit aliquam et ducimus ipsa accusamus ea.",
+    "feature_image": "https:\/\/media-cdn.tripadvisor.com\/media\/photo-s\/17\/75\/3f\/d1\/restaurant-in-valkenswaard.jpg",
+    "town_id": "1",
+    "town_name": "sittwe",
+    "long_lat": "l0987-l9876",
+    "color": "#641279",
+    "contact": {
+        "phone": "0987656789",
+        "address": "address"
+    },
     "items": [
         {
-            "img": "https://discoveringfoods.files.wordpress.com/2016/03/dsc_1316.jpg",
-            "title": "ကျောက်ကြော",
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Eloisa Botsford",
+            "description": "Ut alias perferendis consequuntur laudantium distinctio deserunt ea. Voluptates architecto temporibus adipisci itaque. Corporis laboriosam labore rerum.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2510,
+                "\u1021\u1004\u101a\u103a": 1916
+            },
             "category": [
-                "အသုတ်",
-                "ပင်လယ်စာ"
-            ]
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
         },
         {
-            "img": "http://www.wutyeefoodhouse.com/wp-content/uploads/2012/10/Seaweed_Salad-450x337.jpg",
-            "title": "ကျောက်ပွင့်",
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Sonia Bogisich",
+            "description": "Dignissimos et nostrum pariatur aut sed in doloremque suscipit. Aperiam et eligendi nobis sequi non consequatur suscipit. Non vero natus numquam doloribus tenetur debitis magnam. Rem saepe reiciendis omnis delectus et. Nulla aut vel magnam tempore dolor aspernatur.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2453,
+                "\u1021\u1004\u101a\u103a": 1539
+            },
             "category": [
-                "ပင်လယ်စာ",
-                "ရိုးရာမုန့်"
-            ]
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
         },
         {
-            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsJrZCbgBVRdVwDSAjGpFjrqJZzWIYYr8MbV-UTNJHlQ6nU54OefZk0weKvFhsX1Lg5Gc&usqp=CAU",
-            "title": "ကြက်ကင်",
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Pascale Ledner",
+            "description": "Officia occaecati adipisci repudiandae ipsum quae qui veritatis. Consequatur quos eveniet aspernatur voluptatum est aut. Id dolorem qui modi molestiae quaerat. Voluptatem nihil velit rerum consequuntur tempore omnis sit saepe.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2723,
+                "\u1021\u1004\u101a\u103a": 1170
+            },
             "category": [
-                "အကင်"
-            ]
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
+        },
+        {
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Margret Cartwright I",
+            "description": "Unde alias voluptatem nobis accusamus nulla voluptatem. Temporibus laborum est aut. Rerum temporibus et unde aut ad aspernatur dolorum.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2165,
+                "\u1021\u1004\u101a\u103a": 1158
+            },
+            "category": [
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
+        },
+        {
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Wilson Sawayn V",
+            "description": "Occaecati fuga delectus iure. Est similique blanditiis quo repudiandae. Est doloremque ipsam perferendis quo dolores.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2169,
+                "\u1021\u1004\u101a\u103a": 1862
+            },
+            "category": [
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
+        },
+        {
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Riley Ullrich",
+            "description": "Laudantium natus consequuntur corporis occaecati tempora. Dolorem dolorum eos maxime et reprehenderit libero. Accusantium et et dolor voluptate iure veritatis aut. Quas et cupiditate asperiores similique deleniti quam aliquid ut. Quam autem quo praesentium accusantium consequuntur voluptas quos earum.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2976,
+                "\u1021\u1004\u101a\u103a": 949
+            },
+            "category": [
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
+        },
+        {
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Ayana Reilly V",
+            "description": "Voluptas labore aut consequatur. Porro fugiat et nam dolorem. Quisquam qui magni quo magni. Incidunt quam cum architecto molestiae expedita rerum. Quasi dolorem quam at quia.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2598,
+                "\u1021\u1004\u101a\u103a": 1265
+            },
+            "category": [
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
+        },
+        {
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Mckenzie Kshlerin",
+            "description": "Ut et consequatur omnis. Suscipit qui voluptate sit aut. Unde mollitia quis animi cumque. Inventore nemo enim et aliquid libero aut voluptatem quam.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2135,
+                "\u1021\u1004\u101a\u103a": 1523
+            },
+            "category": [
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
+        },
+        {
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Florencio Hartmann DDS",
+            "description": "In corrupti sunt reiciendis et deserunt vel. Quo et ullam corporis ullam harum tempore eveniet. Quia voluptatem similique ipsum dolor enim aliquam ut.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2702,
+                "\u1021\u1004\u101a\u103a": 1894
+            },
+            "category": [
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
+        },
+        {
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Gaetano Kessler",
+            "description": "Quibusdam commodi ut officia veniam aliquid eos. Dicta tempora est dolor. Reprehenderit pariatur dolorum voluptatibus totam voluptas eum deserunt. Et rerum eos vero praesentium unde.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2925,
+                "\u1021\u1004\u101a\u103a": 1040
+            },
+            "category": [
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
+        },
+        {
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Armando Boyer",
+            "description": "Neque saepe saepe perferendis nulla. Vitae doloribus doloribus ratione assumenda dicta. Voluptatem molestiae nihil nihil dolor inventore voluptas. Quia ut atque quam.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2389,
+                "\u1021\u1004\u101a\u103a": 1565
+            },
+            "category": [
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
+        },
+        {
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Emmet Miller",
+            "description": "Minima laborum hic qui tempora. Corporis quam libero neque aperiam. Optio sit consequatur necessitatibus exercitationem sapiente et. Voluptas voluptatem molestiae iusto saepe ipsa ut.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2233,
+                "\u1021\u1004\u101a\u103a": 1628
+            },
+            "category": [
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
+        },
+        {
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Prof. Myriam Walsh",
+            "description": "Perspiciatis excepturi debitis aut fugit. Molestias sed laboriosam nesciunt veritatis consequatur. Aliquam laboriosam nostrum molestiae vero quia. Aut quasi quo odio vel voluptates rem rem.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2389,
+                "\u1021\u1004\u101a\u103a": 1780
+            },
+            "category": [
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 5,
+                    "label": "အသုတ်"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
         },
         {
             "img": "https://cdn.pixabay.com/photo/2018/08/10/12/17/mohinga-3596735__480.jpg",
-            "title": "မုန့်ဟင်းခါး",
+            "title": "Lorine Larkin",
+            "description": "Neque aut aliquid laborum non consequatur ducimus velit. Autem dolorem dolorem est quasi necessitatibus incidunt explicabo dicta. Voluptate harum ad in quisquam facere. Earum eligendi ut odio autem suscipit. Et sit ipsum sunt corrupti quaerat rerum.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2092,
+                "\u1021\u1004\u101a\u103a": 838
+            },
             "category": [
-                "ရိုးရာမုန့်"
-            ]
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
         },
         {
-            "img": "https://cdn.shopify.com/s/files/1/0556/6401/7575/products/image_36de547f-8421-4d8c-92ae-6815a447719f_1024x1024@2x.jpg?v=1629776413",
-            "title": "မုန့်တီ",
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Prof. Vinnie Predovic",
+            "description": "Possimus nihil nam et est ea. Non quia aliquam odio omnis ipsa enim. Amet tenetur officia beatae eos voluptatibus quis impedit omnis. Sunt consequuntur velit qui et quae assumenda et.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2347,
+                "\u1021\u1004\u101a\u103a": 1784
+            },
             "category": [
-                "ဟင်းရည်",
-                "ရိုးရာမုန့်"
-            ]
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
         },
         {
-            "img": "https://1.bp.blogspot.com/-_JrYh9Da-kc/Xd2d0r_RGaI/AAAAAAAApu4/dlPWBjeocLI7OnsL2PAVHOOrLtJNLOolgCLcBGAsYHQ/s1600/CYMERA_20191127_084750.jpg",
-            "title": "ဆီထမင်း",
+            "img": "https:\/\/i.pinimg.com\/1200x\/49\/91\/cc\/4991cc27898170a8d7e7e264fc4191da.jpg",
+            "title": "Prof. Jacques Thiel",
+            "description": "Aut ducimus debitis quae facilis. Et fuga ex repellendus aliquam. Quidem ut accusantium laudantium sed accusantium asperiores nihil.",
+            "price": {
+                "\u1021\u1000\u103c\u102e\u1038": 2116,
+                "\u1021\u1004\u101a\u103a": 1963
+            },
             "category": [
-                "ရိုးရာမုန့်"
-            ]
-        },
-        {
-            "img": "https://scm-assets.constant.co/scm/unilever/2bb5223be0548fcc55c230aa5f951219/d11275c7-9afe-45f9-99ac-c982b6de549c.jpg",
-            "title": "လဖက်သုတ်",
-            "category": [
-                "အသုတ်"
-            ]
-        },
-        {
-            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6kol-_8Z294UykeGPTVVXAuICEAZAE0BgSQ&usqp=CAU",
-            "title": "ပုဇွန်",
-            "category": [
-                "အကြော်",
-                "ပင်လယ်စာ"
-            ]
+                {
+                    "id": 1,
+                    "label": "Cat1"
+                },
+                {
+                    "id": 2,
+                    "label": "Cat2"
+                },
+                {
+                    "id": 3,
+                    "label": "Cat3"
+                }
+            ],
+            "status": 1,
+            "remark": "ok"
         }
     ]
 }

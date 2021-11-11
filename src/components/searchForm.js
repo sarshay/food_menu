@@ -28,7 +28,8 @@ export function SearchShop() {
         <Paper
             className="glass"
             component="form"
-            variant="filled"
+            variant="outlined"
+            // variant="filled"
             noValidate
             autoComplete="off"
             elevation={8}

@@ -2,7 +2,7 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ItemThumbnail from './ItemThumbnail';
-import { Button, CardMedia, Divider, IconButton, List, ListItem, ListItemText, SwipeableDrawer, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Button, CardMedia, Divider, Grow, IconButton, List, ListItem, ListItemText, SwipeableDrawer, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -12,7 +12,7 @@ import { Paper } from '@mui/material';
 import { borderRadius } from '@mui/system';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import { lang } from '../../components/message';
-
+import { TransitionGroup } from 'react-transition-group';
 // fetfrom api url
 
 export default function Items(props) {
@@ -39,7 +39,7 @@ export default function Items(props) {
 
     const updateSelectCategory = (event, newValue) => {
         setselectCat(newValue)
-        var offset =document.getElementById("itemShow").offsetTop;
+        var offset = document.getElementById("itemShow").offsetTop;
         window.scrollTo({ top: offset, behavior: 'smooth' });
     }
     const item_detail = (i) => (
@@ -109,7 +109,7 @@ export default function Items(props) {
 
             {/* အမျိုးအစားခွဲရန် */}
             {itemData.length > 0 ?//ပစည်းရှိမှပြ
-                <Paper square elevation={0} className='glass container s sticky top0' style={{paddingTop:40}}>
+                <Paper square elevation={0} className='glass container s sticky top0' style={{ paddingTop: 40 }}>
                     <Tabs
                         value={selectCat}
                         onChange={updateSelectCategory}
@@ -125,17 +125,26 @@ export default function Items(props) {
                 </Paper> : ''
             }
             {/* အစားအစာများအား ItemThumbnail ဖြင့်ပြရန် */}
-            <ImageList>
-                {itemData.map((item, i) => {
-                    if (item.category.some(c => c.id === selectCat) || selectCat == null) {
-                        return (
-                            <ImageListItem key={i} onClick={toggleDrawer(item, true)}>
-                                <ItemThumbnail {...item} />
-                            </ImageListItem >
-                        )
-                    }
-                })}
-            </ImageList>
+            <TransitionGroup>
+                <ImageList cols={2} sx={{ transform: 'translateZ(0)' }}>
+                    {itemData.map((item, i) => {
+                        if (item.category.some(c => c.id === selectCat) || selectCat == null) {
+                            return (
+                                <Grow
+                                    in={true}
+                                    out={true}
+                                    {...{ timeout: 1000 + i * 300 }}
+                                    style={{ transformOrigin: '0 0 0' }}
+                                >
+                                    <ImageListItem key={i} onClick={toggleDrawer(item, true)}>
+                                        <ItemThumbnail {...item} />
+                                    </ImageListItem >
+                                </Grow>
+                            )
+                        }
+                    })}
+                </ImageList>
+            </TransitionGroup>
             {/* ကြည့်လို့သော အစားအနစာများကို အပြည့်စုံပြရန် Drawer */}
             <SwipeableDrawer
                 className="container s"

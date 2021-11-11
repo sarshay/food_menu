@@ -14,8 +14,8 @@ import ShareSharp from '@mui/icons-material/ShareSharp';
 export default function ShopBar(props) {
     const share = () => {
         var data = {
-            title: "H Ha",
-            text: "hhh hh h h hh",
+            title: props.name,
+            text: props.description,
             url: window.location
         }
         navigator

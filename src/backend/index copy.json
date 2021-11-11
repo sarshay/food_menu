@@ -1,0 +1,76 @@
+{
+    "name": "Food Shop",
+    "description": "best place in thw world",
+    "feature_image": "https://static01.nyt.com/images/2021/01/26/well/well-foods-microbiome/well-foods-microbiome-superJumbo.jpg",
+    "theme_color": "#a50",
+    "contact": [
+        {
+            "phone": "0987654",
+            "email": "email@mail.com",
+            "address": "address line 1",
+            "long-lat": "l0987-l9876"
+        }
+    ],
+    "items": [
+        {
+            "img": "https://discoveringfoods.files.wordpress.com/2016/03/dsc_1316.jpg",
+            "title": "ကျောက်ကြော",
+            "category": [
+                "အသုတ်",
+                "ပင်လယ်စာ"
+            ]
+        },
+        {
+            "img": "http://www.wutyeefoodhouse.com/wp-content/uploads/2012/10/Seaweed_Salad-450x337.jpg",
+            "title": "ကျောက်ပွင့်",
+            "category": [
+                "ပင်လယ်စာ",
+                "ရိုးရာမုန့်"
+            ]
+        },
+        {
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsJrZCbgBVRdVwDSAjGpFjrqJZzWIYYr8MbV-UTNJHlQ6nU54OefZk0weKvFhsX1Lg5Gc&usqp=CAU",
+            "title": "ကြက်ကင်",
+            "category": [
+                "အကင်"
+            ]
+        },
+        {
+            "img": "https://cdn.pixabay.com/photo/2018/08/10/12/17/mohinga-3596735__480.jpg",
+            "title": "မုန့်ဟင်းခါး",
+            "category": [
+                "ရိုးရာမုန့်"
+            ]
+        },
+        {
+            "img": "https://cdn.shopify.com/s/files/1/0556/6401/7575/products/image_36de547f-8421-4d8c-92ae-6815a447719f_1024x1024@2x.jpg?v=1629776413",
+            "title": "မုန့်တီ",
+            "category": [
+                "ဟင်းရည်",
+                "ရိုးရာမုန့်"
+            ]
+        },
+        {
+            "img": "https://1.bp.blogspot.com/-_JrYh9Da-kc/Xd2d0r_RGaI/AAAAAAAApu4/dlPWBjeocLI7OnsL2PAVHOOrLtJNLOolgCLcBGAsYHQ/s1600/CYMERA_20191127_084750.jpg",
+            "title": "ဆီထမင်း",
+            "category": [
+                "ရိုးရာမုန့်"
+            ]
+        },
+        {
+            "img": "https://scm-assets.constant.co/scm/unilever/2bb5223be0548fcc55c230aa5f951219/d11275c7-9afe-45f9-99ac-c982b6de549c.jpg",
+            "title": "လဖက်သုတ်",
+            "category": [
+                "အသုတ်"
+            ]
+        },
+        {
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6kol-_8Z294UykeGPTVVXAuICEAZAE0BgSQ&usqp=CAU",
+            "title": "ပုဇွန်",
+            "category": [
+                "အကြော်",
+                "ပင်လယ်စာ"
+            ]
+        }
+    ]
+}
