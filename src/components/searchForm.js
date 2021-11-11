@@ -32,7 +32,7 @@ export function SearchShop() {
             noValidate
             autoComplete="off"
             elevation={8}
-
+            role='search'
             sx={{ zIndex: 1, position: 'sticky', top: 20, borderRadius: '50px', m: 2, p: '2px 10px', display: 'flex', alignItems: 'center' }}
             onSubmit={goSearch}
         >
@@ -42,6 +42,7 @@ export function SearchShop() {
                 placeholder={lang().searchFoodOrShop}
                 inputProps={{ 'aria-label': 'search food or shop' }}
                 value={word}
+                type="search"
                 onChange={handleChange}
             />
             <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">

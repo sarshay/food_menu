@@ -36,7 +36,7 @@ export default function ShopThumbnail(props) {
                                 background: `radial-gradient(${shopData.color}a5 10%,rgba(0,0,0,1))`,
                                 position: `relative`,
                                 textAlign:'center',
-                                height: `200px`
+                                minHeight: `200px`
                             }}><br />
                             <Typography gutterBottom variant="h5" component="div">
                                 {shopData.name}

@@ -6,16 +6,6 @@ import QrReader from 'react-qr-reader';
 import { Link, useHistory } from "react-router-dom";
 import beep from './beep-02.mp3';
 import Fab from '@mui/material/Fab';
-import { styled } from '@mui/material/styles';
-
-const StyledFab = styled(Fab)({
-    position: 'absolute',
-    zIndex: 1,
-    top: -30,
-    left: 0,
-    right: 0,
-    margin: '0 auto',
-});
 
 
 export default function TheQrReader() {
@@ -65,10 +55,22 @@ export default function TheQrReader() {
 
     return (
         <React.Fragment>
-            <StyledFab color="primary" aria-label="scan qr" onClick={qrOpener(true)} >
-                <QrCodeScannerIcon />
-            </StyledFab>
-
+            <div style={{
+                position: 'fixed',
+                height: 0,
+                zIndex: 1,
+                bottom: 0,
+                left: 0,
+                right: 0,
+                display: 'flex',
+                justifyContent: 'center'
+            }}>
+                <div style={{ position: 'absolute', top: -80 }}>
+                    <Fab color="primary" aria-label="scan qr" onClick={qrOpener(true)} >
+                        <QrCodeScannerIcon />
+                    </Fab>
+                </div>
+            </div>
             <SwipeableDrawer
                 className="container s"
                 anchor='bottom'
@@ -76,7 +78,7 @@ export default function TheQrReader() {
                 onClose={qrOpener(false)}
                 onOpen={qrOpener(true)}
             >
-                <Box 
+                <Box
                     className="glass"
                     sx={{
                         display: 'flex',

@@ -4,6 +4,7 @@ import Items from '../item';
 import ShareSharpIcon from '@mui/icons-material/ShareSharp';
 import { IconButton } from "@mui/material";
 import { Map, Phone } from "@mui/icons-material";
+import ShopBar from "../../components/app_bar";
 
 
 
@@ -29,22 +30,11 @@ export default function Shop(d) {
           <div className=" container s">
             <h1>{data.name}&nbsp;<CheckCircleIcon /></h1>
             <p>{data.description}</p>
-
-            <IconButton aria-label="call">
-              <Phone />
-            </IconButton>
-            <IconButton aria-label="map">
-              <Map />
-            </IconButton>
-            <IconButton aria-label="share">
-              <ShareSharpIcon />
-            </IconButton>
-
           </div>
         </div>
       </header>
       <Items data={data.items} />
-      <br />
+      <ShopBar {...data}/>
     </div>
   )
 }

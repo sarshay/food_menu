@@ -39,6 +39,7 @@ export default function Items(props) {
 
     const updateSelectCategory = (event, newValue) => {
         setselectCat(newValue)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     const item_detail = (i) => (
         <div className="container s" >
@@ -107,7 +108,7 @@ export default function Items(props) {
 
             {/* အမျိုးအစားခွဲရန် */}
             {itemData.length > 0 ?//ပစည်းရှိမှပြ
-                <Paper square elevation={0} className='glass container s sticky top0'>
+                <Paper square elevation={0} className='glass container s sticky top0' style={{paddingTop:40}}>
                     <Tabs
                         value={selectCat}
                         onChange={updateSelectCategory}

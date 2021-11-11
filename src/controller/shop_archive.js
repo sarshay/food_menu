@@ -17,7 +17,7 @@ function ShopArchive(d) {
         async function fetchData() {
             setLoading(true);
             setError(false);
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             await axios.get(`${process.env.REACT_APP_BASE_URL}/shop/${path}`,
                 { params: params }
             )
@@ -42,14 +42,14 @@ function ShopArchive(d) {
                 loading == true ?
                     [...Array(7)].map((e, i) => <ShopThumbnail shop="loading" key={i} />) :
                     error !== false ? error.message :
-                    shops.length>0?
-                        shops.map((shop) => (
-                            <ShopThumbnail
-                                shop={shop}
-                                style='card'
-                                key={shop.id} />
-                        )):
-                        <SarShaySay {...[lang().shopNotfound]} />
+                        shops.length > 0 ?
+                            shops.map((shop) => (
+                                <ShopThumbnail
+                                    shop={shop}
+                                    style='card'
+                                    key={shop.id} />
+                            )) :
+                            <SarShaySay {...[lang().shopNotfound]} />
             }
         </React.Fragment>
 
