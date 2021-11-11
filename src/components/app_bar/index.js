@@ -3,12 +3,8 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import HomeIcon from '@mui/icons-material/Home';
-import { Link, useHistory } from "react-router-dom";
-import TheQrReader from './the-qr-reader'
-
-import { Directions, Home, LocationOn, Map, Navigation, Phone } from "@mui/icons-material";
-import { Button } from '@mui/material';
+import { Link} from "react-router-dom";
+import { Directions, Home, LocationOn, Phone } from "@mui/icons-material";
 import ShareSharp from '@mui/icons-material/ShareSharp';
 
 export default function ShopBar(props) {

@@ -2,15 +2,10 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions, IconButton } from '@mui/material';
+import { CardActionArea,  IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
-import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
-import Divider from '@mui/material/Divider';
-
 import Skeleton from '@mui/material/Skeleton';
-import Stack from '@mui/material/Stack';
 import { Box } from '@mui/system';
 import { Directions, LocationOn, Phone } from '@mui/icons-material';
 
@@ -19,7 +14,7 @@ export default function ShopThumbnail(props) {
     return (
 
         <React.Fragment>
-            {shopData == 'loading'
+            {shopData === 'loading'
                 ? <Loading />
                 : <Card sx={{ m:2 }} 
                 variant="outlined">

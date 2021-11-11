@@ -1,13 +1,11 @@
 import { ThemeProvider } from '@mui/material';
 import React from 'react';
 import ShopArchive from '../controller/shop_archive';
-import BottomAppBar from '../components/app_bar';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme } from '@mui/material/styles';
 import { useParams } from 'react-router';
 import TheQrReader from '../components/app_bar/the-qr-reader';
 
-import { styled } from '@mui/material/styles';
 const color = "#000000"
 const theme = createTheme({
   palette: {

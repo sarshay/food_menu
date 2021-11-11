@@ -2,14 +2,13 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ItemThumbnail from './ItemThumbnail';
-import { Button, CardMedia, Divider, Grow, IconButton, List, ListItem, ListItemText, SwipeableDrawer, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Button, CardMedia, Grow, IconButton, SwipeableDrawer, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Paper } from '@mui/material';
-import { borderRadius } from '@mui/system';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import { lang } from '../../components/message';
 import { TransitionGroup } from 'react-transition-group';
@@ -97,12 +96,14 @@ export default function Items(props) {
     );
     // category List gen
     const categories = []
-    itemData.map((item) => {
-        item.category.map((cat) => {
-            if (!categories.some(item => item.id === cat.id)) {
-                categories.push(cat);
-            }
-        })
+    itemData.map((item, i) => {
+        <React.Fragment key={i}>
+            {item.category.map((cat) => {
+                <React.Fragment key={cat.id}>
+                    {!categories.some(item => item.id === cat.id) ? categories.push(cat) : ''}
+                </React.Fragment>
+            })}
+        </React.Fragment>
     });
     return (
         <div className="container s" id="itemShow" style={{ transition: '1s' }}>
@@ -119,7 +120,7 @@ export default function Items(props) {
                         <Tab label={lang().all} value={null} />
 
                         {categories.map((cat) => (
-                            <Tab key={cat} label={cat.label} value={cat.id} />
+                            <Tab key={cat.id} label={cat.label} value={cat.id} />
                         ))}
                     </Tabs>
                 </Paper> : ''
@@ -128,20 +129,22 @@ export default function Items(props) {
             <TransitionGroup>
                 <ImageList cols={2} sx={{ transform: 'translateZ(0)' }}>
                     {itemData.map((item, i) => {
-                        if (item.category.some(c => c.id === selectCat) || selectCat == null) {
-                            return (
-                                <Grow
-                                    in={true}
-                                    out={true}
-                                    {...{ timeout: 1000 + i * 300 }}
-                                    style={{ transformOrigin: '0 0 0' }}
-                                >
-                                    <ImageListItem key={i} onClick={toggleDrawer(item, true)}>
-                                        <ItemThumbnail {...item} />
-                                    </ImageListItem >
-                                </Grow>
-                            )
-                        }
+                        <React.Fragment key={i}>
+                            {
+                                item.category.some(c => c.id === selectCat) || selectCat === null
+                                    ? <Grow
+                                        in={true}
+                                        out={true}
+                                        {...{ timeout: 1000 + i * 300 }}
+                                        style={{ transformOrigin: '0 0 0' }}
+                                    >
+                                        <ImageListItem onClick={toggleDrawer(item, true)}>
+                                            <ItemThumbnail {...item} />
+                                        </ImageListItem >
+                                    </Grow>
+                                    : ''
+                            }
+                        </React.Fragment>
                     })}
                 </ImageList>
             </TransitionGroup>
@@ -153,7 +156,7 @@ export default function Items(props) {
                 onClose={toggleDrawer(state.item, false)}
                 onOpen={toggleDrawer(state.item, true)}
             >
-                {state.item == null ? '' : item_detail(state.item)}
+                {state.item === null ? '' : item_detail(state.item)}
             </SwipeableDrawer>
         </div>
     );

@@ -1,9 +1,6 @@
 import React from "react";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Items from '../item';
-import ShareSharpIcon from '@mui/icons-material/ShareSharp';
-import { IconButton } from "@mui/material";
-import { Map, Phone } from "@mui/icons-material";
 import ShopBar from "../../components/app_bar";
 
 

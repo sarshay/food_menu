@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
 import { SwipeableDrawer } from '@mui/material';
 import QrReader from 'react-qr-reader';
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import beep from './beep-02.mp3';
 import Fab from '@mui/material/Fab';
 
@@ -11,7 +11,6 @@ import Fab from '@mui/material/Fab';
 export default function TheQrReader() {
     let history = useHistory();
     const [qrOpen, setqrOpen] = React.useState(false);
-    const [qrResult, setqrResult] = React.useState(null);
 
     const qrOpener = (isopen) => (event) => {
         if (
@@ -34,13 +33,13 @@ export default function TheQrReader() {
             // window.location.href = result;
             // window.location.href = '?hello';
             var pathArray = result.split('/');
-            var protocol = pathArray[0];
+            // var protocol = pathArray[0];
             var path = pathArray[3];
             var host = pathArray[2];
 
 
             let audio = new Audio(beep)
-            if (window.location.origin.split('/')[2] == host) {
+            if (window.location.origin.split('/')[2] === host) {
                 // our host 
                 // play sound
                 audio.play()

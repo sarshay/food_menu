@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Divider, IconButton, InputBase, Paper, TextField } from '@mui/material';
+import React, { useState} from 'react';
+import { Divider, IconButton, InputBase, Paper} from '@mui/material';
 import MapIcon from '@mui/icons-material/Map';
-import ExploreIcon from '@mui/icons-material/Explore';
 import SearchIcon from '@mui/icons-material/Search';
-import { Box } from '@mui/system';
-import { browserHistory } from 'react-router';
 import { useHistory } from "react-router-dom";
 import { useParams } from 'react-router';
 import { lang } from './message';
@@ -21,7 +18,7 @@ export function SearchShop() {
     }
     const goSearch = (e) => {
         e.preventDefault();
-        history.push(`/search/${word==undefined?'':word}`);
+        history.push(`/search/${word===undefined?'':word}`);
         console.log(word);
     }
     return (
@@ -32,7 +29,7 @@ export function SearchShop() {
             // variant="filled"
             noValidate
             autoComplete="off"
-            elevation={8}
+            // elevation={8}
             role='search'
             sx={{ zIndex: 1, position: 'sticky', top: 20, borderRadius: '50px', m: 2, p: '2px 10px', display: 'flex', alignItems: 'center' }}
             onSubmit={goSearch}
