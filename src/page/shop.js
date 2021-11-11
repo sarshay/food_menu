@@ -11,6 +11,8 @@ import { useParams } from "react-router-dom";
 import TheQrReader from '../components/app_bar/the-qr-reader';
 import { Box } from '@mui/system';
 import { Paper } from '@mui/material';
+import { prettyDOM } from '@testing-library/dom';
+import { headTagMaker } from '../components/headTagMaker';
 /// shop page မှာ controller မသုံး Colorပါလို့
 
 
@@ -34,7 +36,7 @@ function ShopPage() {
           setShop(res.data);
           setColor(res.data.color)
           setLoading(false);
-          document.querySelector('meta[name="theme-color"]').setAttribute("content", res.data.color);
+          headTagMaker({title:res.data.name,description:res.data.description,color:res.data.color});
         })
         .catch((error) => {
           setError(error);
@@ -83,4 +85,6 @@ function ShopPage() {
 }
 
 export default ShopPage;
+
+
 
