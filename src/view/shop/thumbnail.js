@@ -28,6 +28,7 @@ export default function ShopThumbnail(props) {
                         <Box sx={{ background: `linear-gradient(rgba(0,0,0,0.8), transparent,${shopData.color}aa 90%)`, }}>
                             <Box
                                 sx={{
+                                    p:1,
                                     display: 'flex',
                                     position: 'relative'
                                 }}>

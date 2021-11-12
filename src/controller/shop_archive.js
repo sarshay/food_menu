@@ -10,9 +10,9 @@ function ShopArchive(d) {
     const [error, setError] = useState(false);
 
 
-    var path = d.filter === "name" && d.value !== '' ? `search/${d.value}` : ''
-    var params = d.params
     useEffect(() => {
+        var path = d.filter === "name" && d.value !== '' ? `search/${d.value}` : ''
+        var params = d.params
         async function fetchData() {
             setLoading(true);
             setError(false);
@@ -45,7 +45,6 @@ function ShopArchive(d) {
                             shops.map((shop) => (
                                 <ShopThumbnail
                                     shop={shop}
-                                    style='card'
                                     key={shop.id} />
                             )) :
                             <SarShaySay {...[lang().shopNotfound]} />

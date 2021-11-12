@@ -29,7 +29,7 @@ export default function ShopBar(props) {
             className="glass"
             color="primary"
             sx={{ height: 0, position: 'fixed', top: 0, bottom: 'auto' }}>
-            <Toolbar sx={{p:0}} style={{ background: `linear-gradient(${props.color},transparent)` }}>
+            <Toolbar id="sarchayShopBar" sx={{p:0}} style={{ background: `linear-gradient(${props.color},transparent)` }}>
                 <IconButton component={Link} to="/" color="inherit" aria-label="open drawer">
                     <Home />
                 </IconButton>

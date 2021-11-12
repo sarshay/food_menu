@@ -44,6 +44,7 @@ function HomePage(props) {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className="page">
+        <div style={{height:50,position:'fixed',top:0,width:'100vw',zIndex:1,background:'linear-gradient(#000,transparent'}}/>
         <ShopArchive
           {...filter}
         />

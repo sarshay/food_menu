@@ -96,21 +96,21 @@ export default function Items(props) {
     );
     // category List gen
     const categories = []
-    itemData.map((item, i) => {
+    itemData.map((item, i) => (
         <React.Fragment key={i}>
-            {item.category.map((cat) => {
+            {item.category.map((cat) => (
                 <React.Fragment key={cat.id}>
                     {!categories.some(item => item.id === cat.id) ? categories.push(cat) : ''}
                 </React.Fragment>
-            })}
+            ))}
         </React.Fragment>
-    });
+    ));
     return (
         <div className="container s" id="itemShow" style={{ transition: '1s' }}>
 
             {/* အမျိုးအစားခွဲရန် */}
             {itemData.length > 0 ?//ပစည်းရှိမှပြ
-                <Paper square elevation={0} className='glass container s sticky top0' style={{ paddingTop: 40 }}>
+                <Paper square elevation={0} className='glass container s sticky top0' style={{ paddingTop:60}}>
                     <Tabs
                         value={selectCat}
                         onChange={updateSelectCategory}
@@ -128,15 +128,15 @@ export default function Items(props) {
             {/* အစားအစာများအား ItemThumbnail ဖြင့်ပြရန် */}
             <TransitionGroup>
                 <ImageList cols={2} sx={{ transform: 'translateZ(0)' }}>
-                    {itemData.map((item, i) => {
+                    {itemData.map((item, i) => (
                         <React.Fragment key={i}>
                             {
                                 item.category.some(c => c.id === selectCat) || selectCat === null
                                     ? <Grow
                                         in={true}
                                         out={true}
-                                        {...{ timeout: 1000 + i * 300 }}
-                                        style={{ transformOrigin: '0 0 0' }}
+                                        {...{ timeout: 1000 }}
+                                        style={{ transformOrigin: '0 0 0', transitionDelay: `${i*70}ms`}}
                                     >
                                         <ImageListItem onClick={toggleDrawer(item, true)}>
                                             <ItemThumbnail {...item} />
@@ -145,7 +145,7 @@ export default function Items(props) {
                                     : ''
                             }
                         </React.Fragment>
-                    })}
+                    ))}
                 </ImageList>
             </TransitionGroup>
             {/* ကြည့်လို့သော အစားအနစာများကို အပြည့်စုံပြရန် Drawer */}
