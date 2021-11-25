@@ -31,7 +31,7 @@ export function SearchShop() {
             autoComplete="off"
             // elevation={8}
             role='search'
-            sx={{ zIndex: 1, position: 'sticky', top: 20, borderRadius: '50px', m: 2, p: '2px 10px', display: 'flex', alignItems: 'center' }}
+            sx={{ zIndex: 1, position: 'sticky', top: 20, borderRadius: '50px', m: 2, p: '0px 10px', display: 'flex', alignItems: 'center' }}
             onSubmit={goSearch}
         >
             <InputBase

@@ -10,6 +10,7 @@ import TheQrReader from '../components/app_bar/the-qr-reader';
 import { Box } from '@mui/system';
 import { Paper } from '@mui/material';
 import { headTagMaker } from '../components/headTagMaker';
+import SarshayBar from '../components/app_bar';
 /// shop page မှာ controller မသုံး Colorပါလို့
 
 
@@ -74,7 +75,7 @@ function ShopPage() {
               <Shop data={shop} />
         }
       </Paper>
-      <TheQrReader />
+      <SarshayBar/>
     </ThemeProvider>
   );
 }

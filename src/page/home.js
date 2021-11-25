@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme } from '@mui/material/styles';
 import { useParams } from 'react-router';
 import TheQrReader from '../components/app_bar/the-qr-reader';
+import SarshayBar from '../components/app_bar';
 
 const color = "#000000"
 const theme = createTheme({
@@ -48,7 +49,7 @@ function HomePage(props) {
         <ShopArchive
           {...filter}
         />
-        <TheQrReader />
+        <SarshayBar/>
       </div>
     </ThemeProvider>
   );

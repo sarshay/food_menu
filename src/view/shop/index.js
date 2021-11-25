@@ -1,7 +1,7 @@
 import React from "react";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Items from '../item';
-import ShopBar from "../../components/app_bar";
+import {ShopBar} from "../../components/app_bar";
 
 
 

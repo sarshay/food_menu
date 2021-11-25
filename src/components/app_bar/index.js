@@ -3,11 +3,14 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import { Link} from "react-router-dom";
-import { Directions, Home, LocationOn, Phone } from "@mui/icons-material";
+import { Link } from "react-router-dom";
+import { DeliveryDining, Directions, Home, LocationOn, Phone, ShoppingCart } from "@mui/icons-material";
 import ShareSharp from '@mui/icons-material/ShareSharp';
+import { Badge, Button } from '@mui/material';
+import { lang } from '../message';
+import TheQrReader from './the-qr-reader';
 
-export default function ShopBar(props) {
+export function ShopBar(props) {
     const share = () => {
         var data = {
             title: props.name,
@@ -29,10 +32,8 @@ export default function ShopBar(props) {
             className="glass"
             color="primary"
             sx={{ height: 0, position: 'fixed', top: 0, bottom: 'auto' }}>
-            <Toolbar id="sarchayShopBar" sx={{p:0}} style={{ background: `linear-gradient(${props.color},transparent)` }}>
-                <IconButton component={Link} to="/" color="inherit" aria-label="open drawer">
-                    <Home />
-                </IconButton>
+            <Toolbar id="sarchayShopBar" sx={{ px: 1 }} style={{ background: `linear-gradient(${props.color},transparent)` }}>
+
                 <div
                     style={{
                         whiteSpace: 'nowrap',
@@ -44,11 +45,8 @@ export default function ShopBar(props) {
                 <IconButton href={`tel:${props.contact.phone}`}>
                     <Phone />
                 </IconButton>
-                <IconButton href={`https://maps.google.com/?ll=20.166352243507365, 92.90348695547647`}>
+                <IconButton href={`https://goo.gl/maps/6Vo8oLGWjGubDeBZA`}>
                     <LocationOn />
-                </IconButton>
-                <IconButton href={`https://www.google.com/maps/dir/20.1364047,92.8964863/20.1664273,92.903457/@20.1400114,92.8849429,14.5z`}>
-                    <Directions />
                 </IconButton>
                 <IconButton onClick={share}>
                     <ShareSharp />
@@ -58,3 +56,32 @@ export default function ShopBar(props) {
         </AppBar>
     );
 }
+
+
+export default function SarshayBar() {
+
+    return (
+        <AppBar
+            component="div"
+            className="glass"
+            color="primary"
+            sx={{ position: 'fixed', top: 'auto', bottom: 0 }}>
+            <Toolbar sx={{ px: 1 }} variant="dense">
+                <Button sx={{ flexGrow: 1 }} component={Link} to="/" color="inherit" aria-label="open drawer">
+                    <Home />
+                </Button>
+                <Box sx={{ flexGrow: 1 }} />
+
+                <TheQrReader />
+                <Button sx={{ flexGrow: 1 }} component={Link} to="/" endIcon={
+                    <Badge badgeContent={1} color="secondary">
+                        <ShoppingCart />
+                    </Badge>
+                }>
+                </Button>
+
+            </Toolbar>
+        </AppBar>
+    );
+}
+

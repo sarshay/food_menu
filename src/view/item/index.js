@@ -71,19 +71,6 @@ export default function Items(props) {
 
                 <Specifications {...i.price} />
 
-                <Box
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        p: 1,
-                        m: 1,
-                    }}
-                >
-                    <Button variant="outlined" endIcon={<DeliveryDiningIcon />}>
-                        {lang().sendMe}
-                    </Button>
-                </Box>
             </Paper>
 
 
