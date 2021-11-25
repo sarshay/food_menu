@@ -3,15 +3,14 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ItemThumbnail from './ItemThumbnail';
 import { Button, CardMedia, Grow, IconButton, SwipeableDrawer, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
-import Box from '@mui/material/Box';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Paper } from '@mui/material';
-import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import { lang } from '../../components/message';
 import { TransitionGroup } from 'react-transition-group';
+import ItemDetail from './detail';
+import ArrowBack from '@mui/icons-material/ArrowBack';
 // fetfrom api url
 
 export default function Items(props) {
@@ -41,46 +40,6 @@ export default function Items(props) {
         var offset = document.getElementById("itemShow").offsetTop;
         window.scrollTo({ top: offset, behavior: 'smooth' });
     }
-    const item_detail = (i) => (
-        <div className="container s" >
-            <CardMedia
-                component="img"
-                height="auto"
-                image={`${i.img}?w=200&fit=crop&auto=format`}
-                alt={i.title}
-                loading="lazy"
-                className="sticky top0"
-            />
-            <Paper
-                className="glass"
-                square elevation={0}
-                role="presentation"
-                onKeyDown={toggleDrawer(i, false)}
-                sx={{
-                    p: 2,
-                    marginTop: '-20px',
-                }}
-                style={{
-                    position: 'relative',
-                    zIndex: 1,
-                    borderRadius: '20px 20px 0px 0px'
-                }}
-            >
-                <Typography gutterBottom variant="h5" component="h1">{i.title}</Typography>
-                <p>{i.description}</p>
-
-                <Specifications {...i.price} />
-
-            </Paper>
-
-
-            <div style={{ position: 'fixed', top: '0', left: '0', zIndex: '1' }}>
-                <IconButton onClick={toggleDrawer(i, false)} sx={{ p: 2 }}>
-                    <ArrowBackIcon />
-                </IconButton>
-            </div>
-        </div>
-    );
     // category List gen
     const categories = []
     itemData.map((item, i) => (
@@ -96,8 +55,8 @@ export default function Items(props) {
         <div className="container s" id="itemShow" style={{ transition: '1s' }}>
 
             {/* အမျိုးအစားခွဲရန် */}
-            {itemData.length > 0 ?//ပစည်းရှိမှပြ
-                <Paper square elevation={0} className='glass container s sticky top0' style={{ paddingTop:60}}>
+            {itemData.length > 0 &&//ပစည်းရှိမှပြ
+                <Paper square elevation={0} className='glass container s sticky top0' style={{ paddingTop: 60 }}>
                     <Tabs
                         value={selectCat}
                         onChange={updateSelectCategory}
@@ -110,7 +69,7 @@ export default function Items(props) {
                             <Tab key={cat.id} label={cat.label} value={cat.id} />
                         ))}
                     </Tabs>
-                </Paper> : ''
+                </Paper> 
             }
             {/* အစားအစာများအား ItemThumbnail ဖြင့်ပြရန် */}
             <TransitionGroup>
@@ -123,7 +82,7 @@ export default function Items(props) {
                                         in={true}
                                         out={true}
                                         {...{ timeout: 1000 }}
-                                        style={{ transformOrigin: '0 0 0', transitionDelay: `${i*70}ms`}}
+                                        style={{ transformOrigin: '0 0 0', transitionDelay: `${i * 70}ms` }}
                                     >
                                         <ImageListItem onClick={toggleDrawer(item, true)}>
                                             <ItemThumbnail {...item} />
@@ -135,48 +94,23 @@ export default function Items(props) {
                     ))}
                 </ImageList>
             </TransitionGroup>
-            {/* ကြည့်လို့သော အစားအနစာများကို အပြည့်စုံပြရန် Drawer */}
+            {/* ကြည့်လို့သော အစားအစာများကို အပြည့်စုံပြရန် Drawer */}
             <SwipeableDrawer
                 className="container s"
                 anchor='bottom'
                 open={state.isopen}
                 onClose={toggleDrawer(state.item, false)}
                 onOpen={toggleDrawer(state.item, true)}
+
+                onKeyDown={toggleDrawer(state.item, false)}
             >
-                {state.item === null ? '' : item_detail(state.item)}
+                {state.item !== null && ItemDetail(state.item)}
+                <div style={{ position: 'fixed', top: '0', left: '0', zIndex: '1' }}>
+                    <IconButton onClick={toggleDrawer(state.item, false)} sx={{ p: 2 }}>
+                        <ArrowBack />
+                    </IconButton>
+                </div>
             </SwipeableDrawer>
         </div>
     );
-}
-
-function Specifications(prices) {
-    console.log(prices);
-    return (
-        <React.Fragment>
-            <TableContainer>
-                <Table aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell></TableCell>
-                            <TableCell align="right">
-                                <Typography variant="div" component="small" color="text.secondary">{lang().price}</Typography>
-                            </TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {
-                            Object.keys(prices).map(key => {
-                                return (
-                                    <TableRow key={key}>
-                                        <TableCell>{key}</TableCell>
-                                        <TableCell align="right">{prices[key].toLocaleString('en-US')}&nbsp;{lang().kyat}</TableCell>
-                                    </TableRow>
-                                )
-                            })
-                        }
-                    </TableBody>
-                </Table>
-            </TableContainer >
-        </React.Fragment>
-    )
 }
