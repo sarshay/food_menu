@@ -34,7 +34,7 @@ export default function ItemDetail(i) {
                 <Typography gutterBottom variant="h5" component="h1">{i.title}</Typography>
                 <p>{i.description}</p>
 
-                <Specifications {...i.price} />
+                <Specifications {...i} />
 
             </Paper>
         </div>
@@ -42,7 +42,7 @@ export default function ItemDetail(i) {
 };
 
 
-function Specifications(prices) {
+function Specifications(props) {
     const [dialog, setDialog] = React.useState({
         data: null,
         isopen: false,
@@ -60,7 +60,8 @@ function Specifications(prices) {
             isopen: false
         });
     };
-    const handleSave = ()=> {
+    const handleSave = () => {
+        localStorage.setItem('cart','tasting');
         setDialog({
             isopen: false
         });
@@ -70,19 +71,19 @@ function Specifications(prices) {
         <React.Fragment>
             <List>
                 {
-                    Object.keys(prices).map(key => {
-                        return (
-                            <ListItem
-                                key={key}
-                                disablePadding
-                            >
-                                <ListItemButton role={undefined} onClick={handleClickOpen(55, true)} dense>
-                                    <ListItemText primary={key} />
-                                    <ListItemText align="right" primary={`${prices[key].toLocaleString('en-US')} ${lang().kyat}`} />
-                                </ListItemButton>
-                            </ListItem>
-                        )
-                    })
+                    props.price.map((p) => (
+                        <ListItem
+                            key={p.key}
+                            disablePadding
+                            sx={{ borderBottom: `1px solid` }}
+                        >
+                            <ListItemButton role={undefined} onClick={handleClickOpen({ id: props.id, title: props.title, key: p.key, price: p.value}, true)} dense>
+                                <ListItemText primary={p.key} />
+                                <ListItemText align="right" primary={`${p.value.toLocaleString('en-US')} ${lang().kyat}`} />
+                            </ListItemButton>
+                        </ListItem>
+                    )
+                    )
                 }
             </List>
             <Dialog
@@ -93,27 +94,24 @@ function Specifications(prices) {
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description"
             >
-                <DialogTitle>{dialog.data}</DialogTitle>
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-slide-description">
-                        Let Google help apps determine location. This means sending anonymous
-                        location data to Google, even when no apps are running.
-                    </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose} endIcon={<Cancel/>} aria-label="cancel"> cancel</Button>
-                    <Button onClick={handleSave} endIcon={<CheckCircle/>} aria-label="save" > save</Button>
-                </DialogActions>
+                {
+                    dialog.isopen&&
+                    <>
+                    <DialogTitle>{dialog.data.title}</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-slide-description">
+                        {dialog.data.key} - {`${dialog.data.price.toLocaleString('en-US')} ${lang().kyat}`}
+                        </DialogContentText>
+                        
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose} endIcon={<Cancel />} aria-label="cancel"> cancel</Button>
+                        <Button onClick={handleSave} endIcon={<CheckCircle />} aria-label="save" > save</Button>
+                    </DialogActions>
+                    </>
+                }
+                
             </Dialog>
-        </React.Fragment>
-    )
-}
-
-function AddCart(sta) {
-
-    return (
-        <React.Fragment>
-
-        </React.Fragment>
+        </React.Fragment >
     )
 }

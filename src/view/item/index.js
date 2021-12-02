@@ -104,7 +104,7 @@ export default function Items(props) {
 
                 onKeyDown={toggleDrawer(state.item, false)}
             >
-                {state.item !== null && ItemDetail(state.item)}
+                {state.item !== null && <ItemDetail {...state.item}/>}
                 <div style={{ position: 'fixed', top: '0', left: '0', zIndex: '1' }}>
                     <IconButton onClick={toggleDrawer(state.item, false)} sx={{ p: 2 }}>
                         <ArrowBack />

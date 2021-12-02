@@ -31,8 +31,8 @@ function ShopPage() {
         .then((res) => {
           setShop(res.data);
           setColor(res.data.color)
+          localStorage.setItem('shop',JSON.stringify(res.data));
           setLoading(false);
-          headTagMaker({title:res.data.name,description:res.data.description,color:res.data.color});
         })
         .catch((error) => {
           setError(error);
@@ -71,11 +71,13 @@ function ShopPage() {
             // <Shop data="loading" /> 
             <Loading /> :
             error !== false ? error.message :
-              // <Loading/> 
-              <Shop data={shop} />
+              <>
+                {headTagMaker({ title: shop.name, description: shop.description, color: color })}
+                <Shop data={shop} />
+              </>
         }
       </Paper>
-      <SarshayBar/>
+      <SarshayBar />
     </ThemeProvider>
   );
 }
