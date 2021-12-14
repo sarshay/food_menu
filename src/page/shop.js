@@ -73,7 +73,7 @@ function ShopPage() {
             error !== false ? error.message :
               <>
                 {headTagMaker({ title: shop.name, description: shop.description, color: color })}
-                <Shop data={shop} />
+                <Shop {...shop} />
               </>
         }
       </Paper>

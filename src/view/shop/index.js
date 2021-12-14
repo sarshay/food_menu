@@ -5,9 +5,11 @@ import {ShopBar} from "../../components/app_bar";
 
 
 
-export default function Shop(d) {
-  const data = d.data;
-  const color = data.color;
+export default function Shop(prop) {
+  
+  const localData = JSON.parse(localStorage.getItem('shop'));
+  const data = localData ? localData : prop;
+
   // const color = "#900";
   return (
     <div className="profile">
@@ -21,7 +23,7 @@ export default function Shop(d) {
           style={{
             color: '#fff',
             paddingTop: '200px',
-            background: `linear-gradient(transparent, ${color})`
+            background: `linear-gradient(transparent, ${ data.color})`
           }}
         >
           <div className=" container s">
@@ -30,7 +32,7 @@ export default function Shop(d) {
           </div>
         </div>
       </header>
-      <Items data={data.items} />
+      <Items {...data} />
       <ShopBar {...data}/>
     </div>
   )

@@ -14,7 +14,8 @@ import ArrowBack from '@mui/icons-material/ArrowBack';
 // fetfrom api url
 
 export default function Items(props) {
-    const itemData = props.data
+    //props = shop_id
+    const itemData = props.items;
     const [state, setState] = React.useState({
         item: null,
         isopen: false,
@@ -69,7 +70,7 @@ export default function Items(props) {
                             <Tab key={cat.id} label={cat.label} value={cat.id} />
                         ))}
                     </Tabs>
-                </Paper> 
+                </Paper>
             }
             {/* အစားအစာများအား ItemThumbnail ဖြင့်ပြရန် */}
             <TransitionGroup>
@@ -104,7 +105,7 @@ export default function Items(props) {
 
                 onKeyDown={toggleDrawer(state.item, false)}
             >
-                {state.item !== null && <ItemDetail {...state.item}/>}
+                {state.item !== null && <ItemDetail item={state.item} shop_id = {props.id} shop_name={props.name}/>}
                 <div style={{ position: 'fixed', top: '0', left: '0', zIndex: '1' }}>
                     <IconButton onClick={toggleDrawer(state.item, false)} sx={{ p: 2 }}>
                         <ArrowBack />
