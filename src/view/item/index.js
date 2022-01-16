@@ -13,7 +13,7 @@ import ItemDetail from './detail';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 // fetfrom api url
 
-export default function Items(props) {
+export default function ItemsMenu(props) {
     //props = shop_id
     const itemData = props.items;
     const [state, setState] = React.useState({
@@ -95,6 +95,7 @@ export default function Items(props) {
                     ))}
                 </ImageList>
             </TransitionGroup>
+
             {/* ကြည့်လို့သော အစားအစာများကို အပြည့်စုံပြရန် Drawer */}
             <SwipeableDrawer
                 className="container s"
@@ -105,7 +106,10 @@ export default function Items(props) {
 
                 onKeyDown={toggleDrawer(state.item, false)}
             >
+                {/* ItemDetail */}
                 {state.item !== null && <ItemDetail item={state.item} shop_id = {props.id} shop_name={props.name}/>}
+
+                {/* ပြန်ပိတ်ရန် */}
                 <div style={{ position: 'fixed', top: '0', left: '0', zIndex: '1' }}>
                     <IconButton onClick={toggleDrawer(state.item, false)} sx={{ p: 2 }}>
                         <ArrowBack />

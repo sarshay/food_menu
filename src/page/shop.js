@@ -31,7 +31,7 @@ function ShopPage() {
         .then((res) => {
           setShop(res.data);
           setColor(res.data.color)
-          localStorage.setItem('shop',JSON.stringify(res.data));
+          localStorage.setItem('shop', JSON.stringify(res.data));
           setLoading(false);
         })
         .catch((error) => {
@@ -63,6 +63,11 @@ function ShopPage() {
       },
     }
   });
+
+
+
+  
+  // var cart =JSON.parse(localStorage.getItem('cart'));
   return (
     <ThemeProvider theme={theme}>
       <Paper component={Box} color="primary" style={{ background: color }} className="page">
@@ -72,7 +77,10 @@ function ShopPage() {
             <Loading /> :
             error !== false ? error.message :
               <>
+                {/* headTagMaker သည် html head tag အတွက်သာဖြစ်သည်၊*/}
                 {headTagMaker({ title: shop.name, description: shop.description, color: color })}
+
+                {/* Shopစာမျက်နာဖြစ်သည် */}
                 <Shop {...shop} />
               </>
         }

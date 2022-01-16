@@ -1,6 +1,6 @@
 import React from "react";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import Items from '../item';
+import ItemsMenu from '../item';
 import {ShopBar} from "../../components/app_bar";
 
 
@@ -32,7 +32,11 @@ export default function Shop(prop) {
           </div>
         </div>
       </header>
-      <Items {...data} />
+
+      
+      <ItemsMenu {...data} />
+
+
       <ShopBar {...data}/>
     </div>
   )

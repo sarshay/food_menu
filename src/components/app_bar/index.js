@@ -59,7 +59,7 @@ export function ShopBar(props) {
 
 
 export default function SarshayBar() {
-
+    var cart = JSON.parse(localStorage.getItem('cart'))
     return (
         <AppBar
             component="div"
@@ -74,7 +74,7 @@ export default function SarshayBar() {
 
                 <TheQrReader />
                 <Button sx={{ flexGrow: 1 }} component={Link} to="/" endIcon={
-                    <Badge badgeContent={1} color="secondary">
+                    <Badge badgeContent={cart.length?cart.length:0} color="secondary">
                         <ShoppingCart />
                     </Badge>
                 }>
