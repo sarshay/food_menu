@@ -10,7 +10,8 @@ import TheQrReader from '../components/app_bar/the-qr-reader';
 import { Box } from '@mui/system';
 import { Paper } from '@mui/material';
 import { headTagMaker } from '../components/headTagMaker';
-import SarshayBar from '../components/app_bar';
+import SarshayBar, { ShopBar } from '../components/app_bar';
+import ItemsMenu from '../view/item';
 /// shop page မှာ controller မသုံး Colorပါလို့
 
 
@@ -66,7 +67,7 @@ function ShopPage() {
 
 
 
-  
+
   // var cart =JSON.parse(localStorage.getItem('cart'));
   return (
     <ThemeProvider theme={theme}>
@@ -81,7 +82,14 @@ function ShopPage() {
                 {headTagMaker({ title: shop.name, description: shop.description, color: color })}
 
                 {/* Shopစာမျက်နာဖြစ်သည် */}
-                <Shop {...shop} />
+
+                <div className="profile">
+                  <Shop {...shop} />
+                  <ItemsMenu {...shop} />
+
+                  {/* head bar */}
+                  <ShopBar {...shop} />
+                </div>
               </>
         }
       </Paper>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Badge, Button, CardMedia, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grow, IconButton, List, ListItem, ListItemButton, ListItemText, Paper, SwipeableDrawer, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Badge, Button, CardMedia, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, Grow, IconButton, List, ListItem, ListItemButton, ListItemText, Paper, SwipeableDrawer, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
@@ -43,32 +43,29 @@ export default function ItemDetail(i) {
 
 
 function Specifications(props) {
-    const [dialog, setDialog] = React.useState({
-        data: null,
-        numberOfItem: null, //ပြောင်လဲနိုင်
-        isopen: false,
-    });
+    const [dialog, setDialog] = React.useState(false);
+    const [iDetail, setIDetail] = React.useState(null);
+    const [nOfItem, setNOfItem] = React.useState(null);
+    const [newNOfItem, setNewNOfItem] = React.useState(null);
+
 
     const handleClickOpen = (d, n) => (event) => {
-        setDialog({
-            data: d,
-            numberOfItem: n,
-            isopen: true
-        });
+        setDialog(true);
+        setIDetail(d);
+        setNOfItem(n);
+        setNewNOfItem(n);
     };
-
     const handleClose = () => {
-        setDialog({
-            isopen: false
-        });
+        setDialog(false);
+        setNewNOfItem(null);
     };
     const handleSave = () => {
         var cart = JSON.parse(localStorage.getItem('cart'));//လက်ရှိတောင်း
-        var addItem = { ...dialog.data, n: dialog.numberOfItem };//ဂုထည့်ဖို့စော်
+        var addItem = { ...iDetail, n: newNOfItem };//ဂုထည့်ဖို့စော်
         if (cart) {//တစ်ခုခုရှိရေခါ
-            if (cart.find((x) => x.uniqueId == dialog.data.uniqueId )) {//ဂုထည့်ဖို့စော်item နဲ့ တူမတူကြည့်ရေ
+            if (cart.find((x) => x.uniqueId == iDetail.uniqueId)) {//ဂုထည့်ဖို့စော်item နဲ့ တူမတူကြည့်ရေ
                 //တူစော် index  ကိုရှာ
-                var theIndex = cart.findIndex(x => x.uniqueId == dialog.data.uniqueId);
+                var theIndex = cart.findIndex(x => x.uniqueId == iDetail.uniqueId);
                 cart[theIndex] = addItem;//updated လုပ်
 
             }
@@ -82,66 +79,80 @@ function Specifications(props) {
             localStorage.setItem('cart', JSON.stringify([addItem]))
         )
 
-        // localStorage.setItem('cart', JSON.stringify({...dialog.data, n: dialog.numberOfItem}));
-        setDialog({
-            isopen: false
-        });
+        // localStorage.setItem('cart', JSON.stringify({...iDetail, n: dialog.numberOfItem}));
+        setDialog(false);
+        setNewNOfItem(null);
     };
-    var cart = JSON.parse(localStorage.getItem('cart'))
+    var cart = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [];
+    var prices = props.item.price;
     return (
         <React.Fragment>
             <List>
                 {
-                    props.item.price.map((p,i) => (
+                    prices.map((p, i) => (
                         <>
-                        <ListItem
-                            key={p.i}
-                            disablePadding
-                            sx={{ borderBottom: `1px solid` }}
-                        >
-                            <ListItemButton role={undefined}
-                                onClick={
-                                    handleClickOpen(
-                                        {
-                                            uniqueId: `${props.shop_id}_${props.item.id}_${i}`,
-                                            shop_id: props.shop_id, //ဆိုင် id
-                                            shop_name: props.shop_name, //တိုင် name
-                                            id: props.item.id, //အစားအစာ id
-                                            title: props.item.title, //အစားအစာ နာမည်
-                                            key: p.key,//အစားအစာ အရွယ်စား
-                                            price: p.value,//အစားအစာ ဈေး
-                                        },
-                                        cart.find((x) => x.uniqueId == `${props.shop_id}_${props.item.id}_${i}`)
-                                        ?cart[cart.findIndex(x => x.uniqueId == `${props.shop_id}_${props.item.id}_${i}`)].n
-                                        :1//ဇာနခုလဲ //ပြောင်လဲနိုင်
-                                    )}
-                                dense>
-                                <ListItemText primary={p.key} />
-                                <ListItemText align="right" primary={`${p.value.toLocaleString('en-US')} ${lang().kyat}`} />
-                            </ListItemButton>
-                        </ListItem>
+                            <ListItem
+                                key={p.i}
+                                disablePadding
+                                sx={{ borderBottom: `1px solid` }}
+                            >
+                                <ListItemButton role={undefined}
+                                    onClick={
+                                        handleClickOpen(
+                                            {
+                                                uniqueId: `${props.shop_id}_${props.item.id}_${i}`,
+                                                shop_id: props.shop_id, //ဆိုင် id
+                                                shop_name: props.shop_name, //တိုင် name
+                                                id: props.item.id, //အစားအစာ id
+                                                title: props.item.title, //အစားအစာ နာမည်
+                                                key: p.key,//အစားအစာ အရွယ်စား
+                                                price: p.value,//အစားအစာ ဈေး
+                                            },
+                                            cart.find((x) => x.uniqueId == `${props.shop_id}_${props.item.id}_${i}`)
+                                                ? cart[cart.findIndex(x => x.uniqueId == `${props.shop_id}_${props.item.id}_${i}`)].n
+                                                : 1//ဇာနခုလဲ //ပြောင်လဲနိုင်
+                                        )}
+                                    dense>
+                                    <ListItemText primary={p.key} />
+                                    <ListItemText align="right" primary={`${p.value.toLocaleString('en-US')} ${lang().kyat}`} />
+                                </ListItemButton>
+                            </ListItem>
                         </>
                     ))
                 }
             </List>
             <Dialog
                 className="glass"
-                open={dialog.isopen}
+                open={dialog}
                 // TransitionComponent={Transition}
-                keepMounted
+                // keepMounted
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description"
             >
                 {
-                    dialog.isopen &&
+                    dialog &&
                     <>
-                        <DialogTitle>{dialog.data.title}</DialogTitle>
+                        <DialogTitle>{iDetail.title}</DialogTitle>
                         <DialogContent>
                             <DialogContentText id="alert-dialog-slide-description">
-                                {dialog.data.key} - {`${dialog.data.price.toLocaleString('en-US')} ${lang().kyat}`}
+                                {iDetail.key}
+                                <Divider />
+                                {`${iDetail.price.toLocaleString('en-US')} ${lang().kyat}`}
                             </DialogContentText>
+                            <br/>
+                            {/* numberOfItem ကိုပြောင်းပါ */}
+                            <TextField
+                                id="outlined-number"
+                                label={lang().nOfItems}
+                                type="number"
+                                InputProps={{ inputProps: { min: 1 } }}
+                                defaultValue={nOfItem}
+                                onChange={e => setNewNOfItem(e.target.value)}
+                            />
+                            <br/>
+                            x {newNOfItem} = {`${(newNOfItem * iDetail.price).toLocaleString('en-US')} ${lang().kyat}`}
                         </DialogContent>
-                        {dialog.numberOfItem}
+
                         <DialogActions>
                             <Button onClick={handleClose} endIcon={<Cancel />} aria-label="cancel">cancel</Button>
                             <Button onClick={handleSave} endIcon={<CheckCircle />} aria-label="save" >save</Button>

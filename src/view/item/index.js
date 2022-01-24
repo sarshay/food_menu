@@ -11,10 +11,9 @@ import { lang } from '../../components/message';
 import { TransitionGroup } from 'react-transition-group';
 import ItemDetail from './detail';
 import ArrowBack from '@mui/icons-material/ArrowBack';
-// fetfrom api url
 
+// items များကို တူညီသည် အုပ်စုခွဲပေးသည်
 export default function ItemsMenu(props) {
-    //props = shop_id
     const itemData = props.items;
     const [state, setState] = React.useState({
         item: null,
@@ -104,7 +103,7 @@ export default function ItemsMenu(props) {
                 onClose={toggleDrawer(state.item, false)}
                 onOpen={toggleDrawer(state.item, true)}
 
-                onKeyDown={toggleDrawer(state.item, false)}
+                // onKeyDown={toggleDrawer(state.item, false)}
             >
                 {/* ItemDetail */}
                 {state.item !== null && <ItemDetail item={state.item} shop_id = {props.id} shop_name={props.name}/>}

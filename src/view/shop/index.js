@@ -12,7 +12,6 @@ export default function Shop(prop) {
 
   // const color = "#900";
   return (
-    <div className="profile">
       <header
         style={{
           background: `url(${data.feature_image})`
@@ -32,12 +31,5 @@ export default function Shop(prop) {
           </div>
         </div>
       </header>
-
-      
-      <ItemsMenu {...data} />
-
-
-      <ShopBar {...data}/>
-    </div>
   )
 }
