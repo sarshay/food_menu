@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ThemeProvider } from '@emotion/react';
+import { TextField, ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import { colorShade } from '../function/color'
 import Shop from '../view/shop';
@@ -12,6 +12,7 @@ import { Paper } from '@mui/material';
 import { headTagMaker } from '../components/headTagMaker';
 import SarshayBar, { ShopBar } from '../components/app_bar';
 import ItemsMenu from '../view/item';
+import CssBaseline from '@mui/material/CssBaseline';
 /// shop page မှာ controller မသုံး Colorပါလို့
 
 
@@ -71,6 +72,7 @@ function ShopPage() {
   // var cart =JSON.parse(localStorage.getItem('cart'));
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Paper component={Box} color="primary" style={{ background: color }} className="page">
         {
           loading === true ?
@@ -85,8 +87,8 @@ function ShopPage() {
 
                 <div className="profile">
                   <Shop {...shop} />
+                  
                   <ItemsMenu {...shop} />
-
                   {/* head bar */}
                   <ShopBar {...shop} />
                 </div>

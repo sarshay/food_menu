@@ -139,17 +139,17 @@ function Specifications(props) {
                                 <Divider />
                                 {`${iDetail.price.toLocaleString('en-US')} ${lang().kyat}`}
                             </DialogContentText>
-                            <br/>
+                            <br />
                             {/* numberOfItem ကိုပြောင်းပါ */}
                             <TextField
-                                id="outlined-number"
+                                variant="standard"
                                 label={lang().nOfItems}
                                 type="number"
                                 InputProps={{ inputProps: { min: 1 } }}
                                 defaultValue={nOfItem}
                                 onChange={e => setNewNOfItem(e.target.value)}
                             />
-                            <br/>
+                            <br />
                             x {newNOfItem} = {`${(newNOfItem * iDetail.price).toLocaleString('en-US')} ${lang().kyat}`}
                         </DialogContent>
 

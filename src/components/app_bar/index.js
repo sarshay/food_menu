@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import { Link } from "react-router-dom";
-import { DeliveryDining, Directions, Home, LocationOn, Phone, ShoppingCart } from "@mui/icons-material";
+import { DeliveryDining, Directions, Home, LocationOn, Map, Phone, ShoppingCart } from "@mui/icons-material";
 import ShareSharp from '@mui/icons-material/ShareSharp';
 import { Badge, Button } from '@mui/material';
 import { lang } from '../message';
@@ -81,16 +81,23 @@ export default function SarshayBar() {
                 <Button sx={{ flexGrow: 1 }} component={Link} to="/" color="inherit" aria-label="open drawer">
                     <Home />
                 </Button>
+                <Button sx={{ flexGrow: 1 }} component={Link} to="/map" endIcon={
+                    <Map />
+                }>
+                </Button>
                 <Box sx={{ flexGrow: 1 }} />
 
                 <TheQrReader />
-                <Button sx={{ flexGrow: 1 }} component={Link} to="/" endIcon={
+                <Button sx={{ flexGrow: 1 }} component={Link} to="/cart" endIcon={
                     <Badge badgeContent={cCart.length} color="secondary">
                         <ShoppingCart />
                     </Badge>
                 }>
                 </Button>
-
+                <Button sx={{ flexGrow: 1 }} component={Link} to="/delivery" endIcon={
+                    <DeliveryDining />
+                }>
+                </Button>
             </Toolbar>
         </AppBar>
     );

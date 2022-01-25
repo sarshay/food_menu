@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Tast from '../backend/index.js';
+import Cart from '../page/cart.js';
 import Home from '../page/home';
 import Shop from '../page/shop';
 
@@ -18,6 +19,9 @@ function MyRoute(props) {
                 <Route path={`/search`} >
                     {/* go search page */}
                     <Home /> 
+                </Route>
+                <Route exact path={`/cart`}>
+                    <Cart />
                 </Route>
                 <Route exact path={`/:shop_id`}>
                     <Shop />
